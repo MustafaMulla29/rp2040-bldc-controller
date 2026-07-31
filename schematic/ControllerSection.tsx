@@ -1,0 +1,151 @@
+import { Microcontroller_RP2040 } from "@tscircuit/common"
+import { Fragment } from "react"
+import { logicTrace, sections, sheets } from "./config"
+
+const hallChannels = [
+  { name: "A", connectorPin: "pin3", gpio: "GPIO9", schY: 5 },
+  { name: "B", connectorPin: "pin4", gpio: "GPIO10", schY: 0 },
+  { name: "C", connectorPin: "pin5", gpio: "GPIO11", schY: -5 },
+] as const
+
+export const ControllerSection = () => (
+  <>
+    <Microcontroller_RP2040
+      name="MCU"
+      autorouter="auto_local"
+      schAutoLayoutEnabled
+      schSheetName={sheets.controller}
+      pcbX={-42}
+      pcbY={-6}
+      schX={-4}
+      schY={8}
+    />
+
+    <pinheader
+      name="J_HALL"
+      pinCount={5}
+      gender="male"
+      pitch="2.54mm"
+      pinLabels={["HALL_5V", "GND", "HALL_A", "HALL_B", "HALL_C"]}
+      showSilkscreenPinLabels
+      pcbX={-50}
+      pcbY={-34}
+      schX={7}
+      schY={0}
+      schWidth={1.2}
+      schSheetName={sheets.hall}
+      schSectionName={sections.hall}
+    />
+
+    {hallChannels.map(({ name, connectorPin, gpio, schY }, index) => (
+      <Fragment key={name}>
+        <resistor
+          name={`R_HALL_${name}_TOP`}
+          resistance="10k"
+          footprint="0603"
+          pcbX={-31 + index * 4}
+          pcbY={-30}
+          schX={-10}
+          schY={schY}
+          schSheetName={sheets.hall}
+          schSectionName={sections.hall}
+        />
+        <resistor
+          name={`R_HALL_${name}_BOT`}
+          resistance="18k"
+          footprint="0603"
+          pcbX={-31 + index * 4}
+          pcbY={-34}
+          schRotation={270}
+          schX={-5}
+          schY={schY - 1}
+          schSheetName={sheets.hall}
+          schSectionName={sections.hall}
+        />
+        <capacitor
+          name={`C_HALL_${name}`}
+          capacitance="1nF"
+          footprint="0603"
+          pcbX={-31 + index * 4}
+          pcbY={-38}
+          schRotation={270}
+          schX={-2}
+          schY={schY - 1}
+          schSheetName={sheets.hall}
+          schSectionName={sections.hall}
+        />
+        <trace
+          name={`HALL_${name}_INPUT`}
+          from={`.J_HALL > .${connectorPin}`}
+          to={`.R_HALL_${name}_TOP > .pin1`}
+          {...logicTrace}
+        />
+        <trace
+          name={`HALL_${name}_DIVIDER`}
+          from={`.R_HALL_${name}_TOP > .pin2`}
+          to={`.R_HALL_${name}_BOT > .pin1`}
+          {...logicTrace}
+        />
+        <trace
+          name={`HALL_${name}_FILTER`}
+          from={`.R_HALL_${name}_TOP > .pin2`}
+          to={`.C_HALL_${name} > .pin1`}
+          {...logicTrace}
+        />
+        <trace
+          name={`HALL_${name}_GPIO`}
+          from={`.R_HALL_${name}_TOP > .pin2`}
+          to={`.MCU > .U1 > .${gpio}`}
+          schDisplayLabel={`HALL_${name}`}
+          {...logicTrace}
+        />
+        <trace
+          name={`HALL_${name}_PULLDOWN_GND`}
+          from={`.R_HALL_${name}_BOT > .pin2`}
+          to="net.GND"
+          {...logicTrace}
+        />
+        <trace
+          name={`HALL_${name}_CAP_GND`}
+          from={`.C_HALL_${name} > .pin2`}
+          to="net.GND"
+          {...logicTrace}
+        />
+      </Fragment>
+    ))}
+
+    <trace
+      name="HALL_SUPPLY"
+      from=".J_HALL > .pin1"
+      to="net.V5"
+      schDisplayLabel="5V"
+      {...logicTrace}
+    />
+    <trace
+      name="HALL_GROUND"
+      from=".J_HALL > .pin2"
+      to="net.GND"
+      {...logicTrace}
+    />
+    <trace
+      name="MCU_GROUND_JOIN"
+      from=".MCU > .U1 > .GND"
+      to="net.GND"
+      {...logicTrace}
+    />
+    <trace
+      name="MCU_3V3_EXPORT"
+      from=".MCU > .U3 > .VOUT"
+      to="net.V3V3"
+      schDisplayLabel="3V3"
+      {...logicTrace}
+    />
+    <trace
+      name="MCU_VSYS_5V"
+      from=".MCU > .U3 > .VIN"
+      to="net.V5"
+      schDisplayLabel="5V"
+      {...logicTrace}
+    />
+  </>
+)
