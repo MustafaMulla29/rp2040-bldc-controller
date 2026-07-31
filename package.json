@@ -22,7 +22,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@tscircuit/common": "^0.0.50"
+    "@tscircuit/common": "^0.0.51"
   },
   "author": "MustafaMulla29"
 }
