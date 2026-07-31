@@ -32,11 +32,10 @@ single-motor BLDC controller.
 
 ## Revision status
 
-The first-pass schematic and component placement are complete. Autorouting is
-enabled (`routingDisabled` has been removed), but the current `auto_local`
-solver does not yet complete all 88 top-level connections with this placement.
-The route must be completed and pass PCB DRC before fabrication. High-current
-motor and bus routes also require a manual copper and thermal review.
+The first-pass schematic and component placement are complete. Autorouting uses
+tscircuit's default router (`routingDisabled` has been removed). The route must
+be completed and pass PCB DRC before fabrication. High-current motor and bus
+routes also require a manual copper and thermal review.
 
 This is an engineering prototype, not a production-ready motor drive. Before
 fabrication, verify the regulator compensation and magnetics, gate-drive

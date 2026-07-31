@@ -12,7 +12,6 @@ export const ControllerSection = () => (
   <>
     <Microcontroller_RP2040
       name="MCU"
-      autorouter="auto_local"
       schAutoLayoutEnabled
       schSheetName={sheets.controller}
       pcbX={-42}
