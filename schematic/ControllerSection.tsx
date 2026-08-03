@@ -14,8 +14,8 @@ export const ControllerSection = () => (
       name="MCU"
       schAutoLayoutEnabled
       schSheetName={sheets.controller}
-      pcbX={-42}
-      pcbY={-6}
+      pcbX={-18}
+      pcbY={-12}
       schX={-4}
       schY={8}
     />
@@ -42,8 +42,8 @@ export const ControllerSection = () => (
           name={`R_HALL_${name}_TOP`}
           resistance="10k"
           footprint="0603"
-          pcbX={-31 + index * 4}
-          pcbY={-30}
+          pcbX={-35}
+          pcbY={-20.5 - index * 4}
           schX={-10}
           schY={schY}
           schSheetName={sheets.hall}
@@ -53,8 +53,8 @@ export const ControllerSection = () => (
           name={`R_HALL_${name}_BOT`}
           resistance="18k"
           footprint="0603"
-          pcbX={-31 + index * 4}
-          pcbY={-34}
+          pcbX={-39}
+          pcbY={-20.5 - index * 4}
           schRotation={270}
           schX={-5}
           schY={schY - 1}
@@ -65,8 +65,8 @@ export const ControllerSection = () => (
           name={`C_HALL_${name}`}
           capacitance="1nF"
           footprint="0603"
-          pcbX={-31 + index * 4}
-          pcbY={-38}
+          pcbX={-43}
+          pcbY={-20.5 - index * 4}
           schRotation={270}
           schX={-2}
           schY={schY - 1}

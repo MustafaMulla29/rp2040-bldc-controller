@@ -47,8 +47,8 @@ export const PowerSection = () => (
       supplierPartNumbers={{ jlcpcb: ["C393074"] }}
       pcbX={-34}
       pcbY={34}
-      schX={-6}
-      schY={5}
+      schX={-8}
+      schY={-1}
       schSheetName={sheets.power}
       schSectionName={sections.busSense}
     />
@@ -101,8 +101,8 @@ export const PowerSection = () => (
       noConnect={["NC"]}
       pcbX={-28}
       pcbY={27}
-      schX={-7}
-      schY={-3}
+      schX={-8}
+      schY={-4}
       schWidth={2.15}
       schHeight={2.8}
       schPinArrangement={{
@@ -119,8 +119,8 @@ export const PowerSection = () => (
       pcbX={-21}
       pcbY={27}
       schRotation={270}
-      schX={-4}
-      schY={-5}
+      schX={-5}
+      schY={-6}
       schSheetName={sheets.power}
       schSectionName={sections.busSense}
     />
@@ -128,7 +128,7 @@ export const PowerSection = () => (
     <LMR16020PDDAR
       name="U_BUCK"
       noConnect={["pin4"]}
-      pcbX={-10}
+      pcbX={-8.5}
       pcbY={25}
       schX={1}
       schY={-4}
@@ -167,8 +167,8 @@ export const PowerSection = () => (
       name="C_BOOT_BUCK"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-4.5}
-      pcbY={22}
+      pcbX={-5.5}
+      pcbY={21}
       schOrientation="vertical"
       schX={1}
       schY={-7}
@@ -179,8 +179,8 @@ export const PowerSection = () => (
       name="C_BUCK_IN"
       capacitance="4.7uF"
       footprint="1206"
-      pcbX={-16.5}
-      pcbY={23}
+      pcbX={-9}
+      pcbY={18}
       schRotation={270}
       schX={-2}
       schY={-6}

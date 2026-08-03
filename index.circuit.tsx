@@ -6,7 +6,7 @@ import { SchematicSheets } from "./schematic/SchematicSheets"
 
 export default function Rp2040BldcController() {
   return (
-    <board width="120mm" height="90mm">
+    <board width="120mm" height="90mm" layers={2}>
       <net name="GND" isGroundNet />
       <net name="V3V3" isPowerNet />
       <net name="V5" isPowerNet />

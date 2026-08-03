@@ -15,8 +15,8 @@ export const GateDriverSection = () => (
   <>
     <DRV8323HRTAR
       name="U_GATE"
-      pcbX={4}
-      pcbY={0}
+      pcbX={30}
+      pcbY={-25}
       schX={-8}
       schY={0}
       schWidth={4.2}
@@ -47,8 +47,8 @@ export const GateDriverSection = () => (
       name="C_GATE_VM"
       capacitance="1uF"
       footprint="1206"
-      pcbX={-2}
-      pcbY={8}
+      pcbX={24}
+      pcbY={-17}
       schRotation={270}
       schX={-12}
       schY={6}
@@ -59,8 +59,8 @@ export const GateDriverSection = () => (
       name="C_DVDD"
       capacitance="1uF"
       footprint="0603"
-      pcbX={-1}
-      pcbY={-6}
+      pcbX={25}
+      pcbY={-32}
       schRotation={270}
       schX={-10}
       schY={-6}
@@ -71,8 +71,8 @@ export const GateDriverSection = () => (
       name="C_CP"
       capacitance="47nF"
       footprint="0603"
-      pcbX={2}
-      pcbY={8}
+      pcbX={28}
+      pcbY={-17}
       schOrientation="vertical"
       schX={-8}
       schY={6}
@@ -83,8 +83,8 @@ export const GateDriverSection = () => (
       name="C_VCP"
       capacitance="1uF"
       footprint="1206"
-      pcbX={7}
-      pcbY={8}
+      pcbX={33}
+      pcbY={-17}
       schOrientation="vertical"
       schX={-4}
       schY={6}
@@ -95,8 +95,8 @@ export const GateDriverSection = () => (
       name="R_ENABLE_PD"
       resistance="100k"
       footprint="0603"
-      pcbX={-2}
-      pcbY={-2}
+      pcbX={24}
+      pcbY={-27}
       schRotation={270}
       schX={-12}
       schY={-3}
@@ -107,8 +107,8 @@ export const GateDriverSection = () => (
       name="R_FAULT_PU"
       resistance="10k"
       footprint="0603"
-      pcbX={-2}
-      pcbY={0}
+      pcbX={24}
+      pcbY={-25}
       schRotation={270}
       schX={-12}
       schY={-1}
@@ -119,8 +119,8 @@ export const GateDriverSection = () => (
       name="R_CAL_PD"
       resistance="100k"
       footprint="0603"
-      pcbX={-2}
-      pcbY={-4}
+      pcbX={24}
+      pcbY={-29}
       schRotation={270}
       schX={-12}
       schY={-5}
@@ -131,8 +131,8 @@ export const GateDriverSection = () => (
       name="R_GAIN"
       resistance="47k"
       footprint="0603"
-      pcbX={7}
-      pcbY={-5}
+      pcbX={33}
+      pcbY={-32}
       schRotation={270}
       schX={-8}
       schY={-7}
@@ -143,8 +143,8 @@ export const GateDriverSection = () => (
       name="R_IDRIVE"
       resistance="75k"
       footprint="0603"
-      pcbX={10}
-      pcbY={-5}
+      pcbX={36}
+      pcbY={-32}
       schRotation={270}
       schX={-5}
       schY={-7}
@@ -155,8 +155,8 @@ export const GateDriverSection = () => (
       name="R_VDS"
       resistance="75k"
       footprint="0603"
-      pcbX={13}
-      pcbY={-5}
+      pcbX={39}
+      pcbY={-32}
       schRotation={270}
       schX={-2}
       schY={-7}
@@ -167,10 +167,10 @@ export const GateDriverSection = () => (
       name="R_VREF_TOP"
       resistance="10k"
       footprint="0603"
-      pcbX={10}
-      pcbY={-7}
-      schX={2}
-      schY={-6}
+      pcbX={28}
+      pcbY={-35}
+      schX={-8}
+      schY={-5}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
@@ -178,11 +178,11 @@ export const GateDriverSection = () => (
       name="R_VREF_BOT"
       resistance="10k"
       footprint="0603"
-      pcbX={13}
-      pcbY={-7}
+      pcbX={31}
+      pcbY={-35}
       schRotation={270}
-      schX={4}
-      schY={-7}
+      schX={-5}
+      schY={-6}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
@@ -190,11 +190,11 @@ export const GateDriverSection = () => (
       name="C_VREF"
       capacitance="1uF"
       footprint="0603"
-      pcbX={16}
-      pcbY={-7}
+      pcbX={34}
+      pcbY={-35}
       schRotation={270}
-      schX={6}
-      schY={-7}
+      schX={-2}
+      schY={-6}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />

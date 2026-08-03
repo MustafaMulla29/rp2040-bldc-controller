@@ -29,8 +29,8 @@ const phaseConfig: Array<{
 }> = [
   {
     phase: "A",
-    pcbX: 24,
-    schX: 0,
+    pcbX: 14,
+    schX: 3,
     connectorPin: "pin1",
     highGate: "GHA",
     switchNode: "SHA",
@@ -42,8 +42,8 @@ const phaseConfig: Array<{
   },
   {
     phase: "B",
-    pcbX: 36,
-    schX: 6,
+    pcbX: 30,
+    schX: 8,
     connectorPin: "pin2",
     highGate: "GHB",
     switchNode: "SHB",
@@ -55,8 +55,8 @@ const phaseConfig: Array<{
   },
   {
     phase: "C",
-    pcbX: 48,
-    schX: 12,
+    pcbX: 46,
+    schX: 13,
     connectorPin: "pin3",
     highGate: "GHC",
     switchNode: "SHC",
@@ -139,7 +139,7 @@ const PowerStagePhase = ({
         name={gateHighPd}
         resistance="100k"
         footprint="0603"
-        pcbX={pcbX + 6.5}
+        pcbX={pcbX - 5.5}
         pcbY={8.5}
         schRotation={270}
         schX={schX + 2}
@@ -151,7 +151,7 @@ const PowerStagePhase = ({
         name={gateLowPd}
         resistance="100k"
         footprint="0603"
-        pcbX={pcbX + 6.5}
+        pcbX={pcbX - 5.5}
         pcbY={-5.5}
         schRotation={270}
         schX={schX + 2}
@@ -166,7 +166,7 @@ const PowerStagePhase = ({
         manufacturerPartNumber="RLP25FEGMR005"
         supplierPartNumbers={{ jlcpcb: ["C393074"] }}
         pcbX={pcbX}
-        pcbY={-14}
+        pcbY={-12}
         schRotation={270}
         schX={schX}
         schY={-4}
