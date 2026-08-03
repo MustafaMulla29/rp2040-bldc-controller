@@ -1,7 +1,9 @@
 import { ControllerSection } from "./schematic/ControllerSection"
+import { EncoderSection } from "./schematic/EncoderSection"
 import { GateDriverSection } from "./schematic/GateDriverSection"
 import { PowerSection } from "./schematic/PowerSection"
 import { PowerStageSection } from "./schematic/PowerStageSection"
+import { ProtectionSection } from "./schematic/ProtectionSection"
 import { SchematicSheets } from "./schematic/SchematicSheets"
 
 export default function Rp2040BldcController() {
@@ -20,8 +22,10 @@ export default function Rp2040BldcController() {
 
       <SchematicSheets />
       <ControllerSection />
+      <EncoderSection />
       <PowerSection />
       <GateDriverSection />
+      <ProtectionSection />
       <PowerStageSection />
 
       <copperpour

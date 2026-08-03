@@ -16,6 +16,7 @@ const drainPins = ["D1", "D3", "D4", "D5", "pin8_alt1"] as const
 
 const phaseConfig: Array<{
   phase: PhaseName
+  motorLabel: "U" | "V" | "W"
   pcbX: number
   schX: number
   connectorPin: "pin1" | "pin2" | "pin3"
@@ -29,8 +30,9 @@ const phaseConfig: Array<{
 }> = [
   {
     phase: "A",
+    motorLabel: "U",
     pcbX: 14,
-    schX: 3,
+    schX: 3.8,
     connectorPin: "pin1",
     highGate: "GHA",
     switchNode: "SHA",
@@ -42,8 +44,9 @@ const phaseConfig: Array<{
   },
   {
     phase: "B",
+    motorLabel: "V",
     pcbX: 30,
-    schX: 8,
+    schX: 8.7,
     connectorPin: "pin2",
     highGate: "GHB",
     switchNode: "SHB",
@@ -55,8 +58,9 @@ const phaseConfig: Array<{
   },
   {
     phase: "C",
+    motorLabel: "W",
     pcbX: 46,
-    schX: 13,
+    schX: 13.2,
     connectorPin: "pin3",
     highGate: "GHC",
     switchNode: "SHC",
@@ -70,6 +74,7 @@ const phaseConfig: Array<{
 
 const PowerStagePhase = ({
   phase,
+  motorLabel,
   pcbX,
   schX,
   connectorPin,
@@ -88,8 +93,8 @@ const PowerStagePhase = ({
   const gateHighPd = `R_GH${phase}_PD`
   const gateLowPd = `R_GL${phase}_PD`
   const shunt = `R_SHUNT_${phase}`
-  const phaseNet = `net.PHASE_${phase}`
-  const sourceNet = `net.LS_SOURCE_${phase}`
+  const phaseNet = `net.${motorLabel}`
+  const sourceNet = `net.LS_${phase}`
 
   return (
     <>
@@ -99,7 +104,9 @@ const PowerStagePhase = ({
         pcbY={12}
         pcbRotation={90}
         schX={schX}
-        schY={4}
+        schY={5.5}
+        schWidth={1.6}
+        schHeight={2}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -109,7 +116,9 @@ const PowerStagePhase = ({
         pcbY={-2}
         pcbRotation={90}
         schX={schX}
-        schY={0}
+        schY={-1}
+        schWidth={1.6}
+        schHeight={2}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -119,8 +128,8 @@ const PowerStagePhase = ({
         footprint="0603"
         pcbX={pcbX - 6.5}
         pcbY={12}
-        schX={schX - 2}
-        schY={4}
+        schX={schX - 2.8}
+        schY={7.2}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -130,8 +139,8 @@ const PowerStagePhase = ({
         footprint="0603"
         pcbX={pcbX - 6.5}
         pcbY={-2}
-        schX={schX - 2}
-        schY={0}
+        schX={schX - 2.8}
+        schY={-2.7}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -142,8 +151,8 @@ const PowerStagePhase = ({
         pcbX={pcbX - 5.5}
         pcbY={8.5}
         schRotation={270}
-        schX={schX + 2}
-        schY={3}
+        schX={schX}
+        schY={2.3}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -154,8 +163,8 @@ const PowerStagePhase = ({
         pcbX={pcbX - 5.5}
         pcbY={-5.5}
         schRotation={270}
-        schX={schX + 2}
-        schY={-1}
+        schX={schX}
+        schY={-7}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -169,7 +178,7 @@ const PowerStagePhase = ({
         pcbY={-12}
         schRotation={270}
         schX={schX}
-        schY={-4}
+        schY={-9}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -267,7 +276,6 @@ const PowerStagePhase = ({
         name={`${phase}_SWITCH_NODE`}
         from={`.U_GATE > .${switchNode}`}
         to={phaseNet}
-        schDisplayLabel={`PHASE_${phase}`}
         {...motorTrace}
       />
       <trace
@@ -304,7 +312,6 @@ const PowerStagePhase = ({
         name={`${phase}_CURRENT_ADC`}
         from={`.U_GATE > .${senseOut}`}
         to={`.MCU > .U1 > .${adc}`}
-        schDisplayLabel={`CURRENT_${phase}`}
         {...senseTrace}
       />
     </>
@@ -318,8 +325,8 @@ export const PowerStageSection = () => (
       pcbX={51}
       pcbY={31}
       pcbRotation={180}
-      schX={8}
-      schY={7}
+      schX={9}
+      schY={9}
       schWidth={1.2}
       schHeight={2}
       schPinArrangement={{ leftSide: [1, 2, 3] }}

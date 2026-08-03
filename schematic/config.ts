@@ -1,12 +1,16 @@
 export const sheets = {
   controller: "controller",
   hall: "hall",
+  encoder: "encoder",
+  protection: "protection",
   power: "power",
   motor: "motor",
 } as const
 
 export const sections = {
   hall: "hall_inputs",
+  encoder: "encoder_inputs",
+  temperature: "temperature_protection",
   inputProtection: "input_protection",
   buck: "five_volt_buck",
   busSense: "bus_current_sense",

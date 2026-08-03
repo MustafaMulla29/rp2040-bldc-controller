@@ -20,9 +20,20 @@ export const SchematicSheets = () => (
     </schematicsheet>
 
     <schematicsheet
+      name={sheets.encoder}
+      displayName="Optional Quadrature Encoder"
+      sheetIndex={3}
+    >
+      <schematicsection
+        name={sections.encoder}
+        displayName="Filtered 5 V Encoder Inputs"
+      />
+    </schematicsheet>
+
+    <schematicsheet
       name={sheets.power}
       displayName="12-24 V Input & Power Supplies"
-      sheetIndex={3}
+      sheetIndex={4}
     >
       <schematicsection
         name={sections.inputProtection}
@@ -41,7 +52,7 @@ export const SchematicSheets = () => (
     <schematicsheet
       name={sheets.motor}
       displayName="Three-Phase BLDC Power Stage"
-      sheetIndex={4}
+      sheetIndex={5}
     >
       <schematicsection
         name={sections.gateDriver}
@@ -50,6 +61,17 @@ export const SchematicSheets = () => (
       <schematicsection
         name={sections.powerStage}
         displayName="Six-MOSFET Inverter & Motor Output"
+      />
+    </schematicsheet>
+
+    <schematicsheet
+      name={sheets.protection}
+      displayName="Temperature & Hardware Protection"
+      sheetIndex={6}
+    >
+      <schematicsection
+        name={sections.temperature}
+        displayName="Power-Stage Temperature Interlock"
       />
     </schematicsheet>
   </>
