@@ -27,22 +27,7 @@ export const LMR16020PDDAR = (props: ChipProps<typeof pinLabels>) => {
   ]
 }}
       manufacturerPartNumber="LMR16020PDDAR"
-      footprint={
-        <footprint>
-          <smtpad portHints={["pin1"]} pcbX="-2.72mm" pcbY="-1.905mm" width="1.94mm" height="0.6mm" shape="rect" />
-          <smtpad portHints={["pin2"]} pcbX="-2.72mm" pcbY="-0.635mm" width="1.94mm" height="0.6mm" shape="rect" />
-          <smtpad portHints={["pin3"]} pcbX="-2.72mm" pcbY="0.635mm" width="1.94mm" height="0.6mm" shape="rect" />
-          <smtpad portHints={["pin4"]} pcbX="-2.72mm" pcbY="1.905mm" width="1.94mm" height="0.6mm" shape="rect" />
-          <smtpad portHints={["pin5"]} pcbX="2.72mm" pcbY="1.905mm" width="1.94mm" height="0.6mm" shape="rect" />
-          <smtpad portHints={["pin6"]} pcbX="2.72mm" pcbY="0.635mm" width="1.94mm" height="0.6mm" shape="rect" />
-          <smtpad portHints={["pin7"]} pcbX="2.72mm" pcbY="-0.635mm" width="1.94mm" height="0.6mm" shape="rect" />
-          <smtpad portHints={["pin8"]} pcbX="2.72mm" pcbY="-1.905mm" width="1.94mm" height="0.6mm" shape="rect" />
-          <smtpad portHints={["pin9", "thermalpad"]} pcbX="0mm" pcbY="0mm" width="2.41mm" height="3.098mm" shape="rect" />
-          <silkscreenpath route={[{ x: -2, y: -2.65 }, { x: 2, y: -2.65 }, { x: 2, y: 2.65 }, { x: -2, y: 2.65 }, { x: -2, y: -2.65 }]} />
-          <silkscreentext text="{NAME}" pcbX="0mm" pcbY="3.4mm" anchorAlignment="center" fontSize="0.8mm" />
-          <courtyardoutline outline={[{ x: -4, y: -3 }, { x: 4, y: -3 }, { x: 4, y: 3 }, { x: -4, y: 3 }, { x: -4, y: -3 }]} />
-        </footprint>
-      }
+      footprint="soic8_thermalpad2.41mmx3.098mm_pillpads_w7.3822mm_pw0.602mm_pl1.941mm_pin1location(leftside,bottom)"
       cadModel={{
         objUrl: "https://modelcdn.tscircuit.com/easyeda_models/assets/C190006.obj?uuid=3febf2d495b54c0da7c8bb4287865e8b",
         stepUrl: "https://modelcdn.tscircuit.com/easyeda_models/assets/C190006.step?uuid=3febf2d495b54c0da7c8bb4287865e8b",

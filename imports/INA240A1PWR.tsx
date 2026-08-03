@@ -21,21 +21,7 @@ export const INA240A1PWR = (props: ChipProps<typeof pinLabels>) => {
   ]
 }}
       manufacturerPartNumber="INA240A1PWR"
-      footprint={
-        <footprint>
-          <smtpad portHints={["pin1"]} pcbX="-2.9271mm" pcbY="-0.975mm" width="1.454mm" height="0.353mm" shape="rect" />
-          <smtpad portHints={["pin2"]} pcbX="-2.9271mm" pcbY="-0.325mm" width="1.454mm" height="0.353mm" shape="rect" />
-          <smtpad portHints={["pin3"]} pcbX="-2.9271mm" pcbY="0.325mm" width="1.454mm" height="0.353mm" shape="rect" />
-          <smtpad portHints={["pin4"]} pcbX="-2.9271mm" pcbY="0.975mm" width="1.454mm" height="0.353mm" shape="rect" />
-          <smtpad portHints={["pin5"]} pcbX="2.9271mm" pcbY="0.975mm" width="1.454mm" height="0.353mm" shape="rect" />
-          <smtpad portHints={["pin6"]} pcbX="2.9271mm" pcbY="0.325mm" width="1.454mm" height="0.353mm" shape="rect" />
-          <smtpad portHints={["pin7"]} pcbX="2.9271mm" pcbY="-0.325mm" width="1.454mm" height="0.353mm" shape="rect" />
-          <smtpad portHints={["pin8"]} pcbX="2.9271mm" pcbY="-0.975mm" width="1.454mm" height="0.353mm" shape="rect" />
-          <silkscreenpath route={[{ x: -2.2, y: -1.7 }, { x: 2.2, y: -1.7 }, { x: 2.2, y: 1.7 }, { x: -2.2, y: 1.7 }, { x: -2.2, y: -1.7 }]} />
-          <silkscreentext text="{NAME}" pcbX="0mm" pcbY="2.4mm" anchorAlignment="center" fontSize="0.8mm" />
-          <courtyardoutline outline={[{ x: -4.1, y: -2 }, { x: 4.1, y: -2 }, { x: 4.1, y: 2 }, { x: -4.1, y: 2 }, { x: -4.1, y: -2 }]} />
-        </footprint>
-      }
+      footprint="dfn8_pillpads_p0.65mm_w7.3082mm_pw0.353mm_pl1.454mm_pin1location(leftside,bottom)"
       cadModel={{
         objUrl: "https://modelcdn.tscircuit.com/easyeda_models/assets/C93965.obj?uuid=2d0fd2703afb4f81a9dfc54e2181a624",
         stepUrl: "https://modelcdn.tscircuit.com/easyeda_models/assets/C93965.step?uuid=2d0fd2703afb4f81a9dfc54e2181a624",

@@ -116,8 +116,8 @@ export const PowerSection = () => (
       name="C_BUS_SENSE"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-21}
-      pcbY={27}
+      pcbX={-26}
+      pcbY={20}
       schRotation={270}
       schX={-5}
       schY={-6}
@@ -167,8 +167,8 @@ export const PowerSection = () => (
       name="C_BOOT_BUCK"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-5.5}
-      pcbY={21}
+      pcbX={-10.5}
+      pcbY={20}
       schOrientation="vertical"
       schX={1}
       schY={-7}
@@ -215,8 +215,8 @@ export const PowerSection = () => (
       name="R_BUCK_EN"
       resistance="100k"
       footprint="0603"
-      pcbX={-16}
-      pcbY={29}
+      pcbX={-11}
+      pcbY={31}
       schX={-1}
       schY={-2}
       schSheetName={sheets.power}
@@ -227,7 +227,7 @@ export const PowerSection = () => (
       resistance="56.2k"
       footprint="0603"
       pcbX={5}
-      pcbY={20}
+      pcbY={17}
       schX={8}
       schY={-2}
       schSheetName={sheets.power}
@@ -238,7 +238,7 @@ export const PowerSection = () => (
       resistance="10k"
       footprint="0603"
       pcbX={9}
-      pcbY={20}
+      pcbY={17}
       schRotation={270}
       schX={10}
       schY={-3}
