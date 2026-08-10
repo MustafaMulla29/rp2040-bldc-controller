@@ -18,14 +18,11 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "tscircuit": "0.0.2222",
+    "tscircuit": "0.0.2279",
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@tscircuit/common": "^0.0.53"
-  },
-  "overrides": {
-    "@tscircuit/capacity-autorouter": "0.0.738"
+    "@tscircuit/common": "^0.0.54"
   },
   "author": "MustafaMulla29"
 }

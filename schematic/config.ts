@@ -18,7 +18,21 @@ export const sections = {
   powerStage: "power_stage",
 } as const
 
-export const logicTrace = { thickness: "0.2mm" } as const
-export const senseTrace = { thickness: "0.2mm" } as const
-export const powerTrace = { thickness: "0.8mm" } as const
-export const motorTrace = { thickness: "1.5mm" } as const
+export const logicTrace = {
+  thickness: "0.2mm",
+} as const
+export const senseTrace = {
+  thickness: "0.2mm",
+} as const
+export const groundTrace = {
+  thickness: "0.2mm",
+} as const
+export const driverTrace = {
+  thickness: "0.4mm",
+} as const
+export const powerTrace = {
+  thickness: "0.8mm",
+} as const
+export const motorTrace = {
+  thickness: "1.5mm",
+} as const

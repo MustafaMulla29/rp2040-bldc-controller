@@ -13,12 +13,12 @@ export default function Rp2040BldcController() {
       <net name="V3V3" isPowerNet />
       <net name="V5" isPowerNet />
       <net name="VM" isPowerNet />
-      <net name="PHASE_A" />
-      <net name="PHASE_B" />
-      <net name="PHASE_C" />
-      <net name="LS_SOURCE_A" />
-      <net name="LS_SOURCE_B" />
-      <net name="LS_SOURCE_C" />
+      <net name="U" />
+      <net name="V" />
+      <net name="W" />
+      <net name="LS_A" />
+      <net name="LS_B" />
+      <net name="LS_C" />
 
       <SchematicSheets />
       <ControllerSection />
@@ -27,27 +27,6 @@ export default function Rp2040BldcController() {
       <GateDriverSection />
       <ProtectionSection />
       <PowerStageSection />
-
-      <copperpour
-        name="GND_TOP"
-        layer="top"
-        connectsTo="net.GND"
-        clearance="0.25mm"
-        padMargin="0.2mm"
-        traceMargin="0.2mm"
-        boardEdgeMargin="0.5mm"
-        coveredWithSolderMask
-      />
-      <copperpour
-        name="GND_BOTTOM"
-        layer="bottom"
-        connectsTo="net.GND"
-        clearance="0.25mm"
-        padMargin="0.2mm"
-        traceMargin="0.2mm"
-        boardEdgeMargin="0.5mm"
-        coveredWithSolderMask
-      />
 
       <hole diameter="3.2mm" pcbX={-56} pcbY={41} />
       <hole diameter="3.2mm" pcbX={56} pcbY={41} />

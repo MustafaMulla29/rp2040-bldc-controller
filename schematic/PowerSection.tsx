@@ -7,6 +7,7 @@ import { SS36 } from "../imports/SS36"
 import { SWPA6045S150MT } from "../imports/SWPA6045S150MT"
 import { WJ500V_5_08_2P } from "../imports/WJ500V_5_08_2P"
 import {
+  groundTrace,
   logicTrace,
   powerTrace,
   sections,
@@ -45,7 +46,7 @@ export const PowerSection = () => (
       footprint="2512"
       manufacturerPartNumber="RLP25FEGMR005"
       supplierPartNumbers={{ jlcpcb: ["C393074"] }}
-      pcbX={-34}
+      pcbX={-22}
       pcbY={34}
       schX={-8}
       schY={-1}
@@ -54,7 +55,7 @@ export const PowerSection = () => (
     />
     <SMBJ33A
       name="D_TVS"
-      pcbX={-27}
+      pcbX={-14}
       pcbY={35}
       pcbRotation={90}
       schRotation={270}
@@ -65,7 +66,7 @@ export const PowerSection = () => (
     />
     <RVT1V101M0607
       name="C_VM_BULK1"
-      pcbX={-19}
+      pcbX={-6}
       pcbY={35}
       schRotation={270}
       schX={0.5}
@@ -75,7 +76,7 @@ export const PowerSection = () => (
     />
     <RVT1V101M0607
       name="C_VM_BULK2"
-      pcbX={-8.5}
+      pcbX={4.5}
       pcbY={35}
       schRotation={270}
       schX={3}
@@ -87,7 +88,7 @@ export const PowerSection = () => (
       name="C_VM_HF"
       capacitance="1uF"
       footprint="1206"
-      pcbX={0}
+      pcbX={13}
       pcbY={34}
       schRotation={270}
       schX={5.5}
@@ -116,8 +117,10 @@ export const PowerSection = () => (
       name="C_BUS_SENSE"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-26}
-      pcbY={20}
+      pcbX={-27.35}
+      pcbY={29.93}
+      pcbRotation={0}
+      layer="bottom"
       schRotation={270}
       schX={-5}
       schY={-6}
@@ -167,8 +170,9 @@ export const PowerSection = () => (
       name="C_BOOT_BUCK"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-10.5}
-      pcbY={20}
+      pcbX={-12}
+      pcbY={30.5}
+      pcbRotation={90}
       schOrientation="vertical"
       schX={1}
       schY={-7}
@@ -179,8 +183,10 @@ export const PowerSection = () => (
       name="C_BUCK_IN"
       capacitance="4.7uF"
       footprint="1206"
-      pcbX={-9}
-      pcbY={18}
+      pcbX={-8.82}
+      pcbY={23.64}
+      pcbRotation={257}
+      layer="bottom"
       schRotation={270}
       schX={-2}
       schY={-6}
@@ -215,8 +221,8 @@ export const PowerSection = () => (
       name="R_BUCK_EN"
       resistance="100k"
       footprint="0603"
-      pcbX={-11}
-      pcbY={31}
+      pcbX={-7}
+      pcbY={19.5}
       schX={-1}
       schY={-2}
       schSheetName={sheets.power}
@@ -226,8 +232,9 @@ export const PowerSection = () => (
       name="R_FB_TOP"
       resistance="56.2k"
       footprint="0603"
-      pcbX={5}
-      pcbY={17}
+      pcbX={-3.5}
+      pcbY={30}
+      pcbRotation={180}
       schX={8}
       schY={-2}
       schSheetName={sheets.power}
@@ -237,8 +244,9 @@ export const PowerSection = () => (
       name="R_FB_BOT"
       resistance="10k"
       footprint="0603"
-      pcbX={9}
-      pcbY={17}
+      pcbX={-3.5}
+      pcbY={33}
+      pcbRotation={180}
       schRotation={270}
       schX={10}
       schY={-3}
@@ -249,8 +257,9 @@ export const PowerSection = () => (
       name="R_PGOOD"
       resistance="10k"
       footprint="0603"
-      pcbX={-4}
-      pcbY={29}
+      pcbX={-7}
+      pcbY={30}
+      pcbRotation={180}
       schX={4}
       schY={-1}
       schSheetName={sheets.power}
@@ -274,7 +283,7 @@ export const PowerSection = () => (
       name="POWER_INPUT_NEG"
       from=".J_POWER > .pin2"
       to="net.GND"
-      {...powerTrace}
+      {...groundTrace}
     />
     <trace
       name="MOTOR_BUS"
@@ -293,7 +302,7 @@ export const PowerSection = () => (
       name="TVS_GND"
       from=".D_TVS > .anode"
       to="net.GND"
-      {...powerTrace}
+      {...groundTrace}
     />
     {["C_VM_BULK1", "C_VM_BULK2", "C_VM_HF"].map((name) => (
       <Fragment key={name}>
@@ -307,7 +316,7 @@ export const PowerSection = () => (
           name={`${name}_GND`}
           from={`.${name} > .pin2`}
           to="net.GND"
-          {...powerTrace}
+          {...groundTrace}
         />
       </Fragment>
     ))}
@@ -334,24 +343,24 @@ export const PowerSection = () => (
       name="BUS_SENSE_GND"
       from=".U_BUS_SENSE > .GND"
       to="net.GND"
-      {...logicTrace}
+      {...groundTrace}
     />
     <trace
       name="BUS_SENSE_REF1"
       from=".U_BUS_SENSE > .REF1"
       to="net.GND"
-      {...logicTrace}
+      {...groundTrace}
     />
     <trace
       name="BUS_SENSE_REF2"
       from=".U_BUS_SENSE > .REF2"
       to="net.GND"
-      {...logicTrace}
+      {...groundTrace}
     />
     <trace
       name="BUS_SENSE_OUT"
       from=".U_BUS_SENSE > .OUT"
-      to=".MCU > .U1 > .GPIO29_ADC3"
+      to="net.MCU_BUS_CURRENT"
       schDisplayLabel="BUS_CURRENT"
       {...senseTrace}
     />
@@ -365,7 +374,7 @@ export const PowerSection = () => (
       name="BUS_SENSE_DECOUPLE_GND"
       from=".C_BUS_SENSE > .pin2"
       to="net.GND"
-      {...logicTrace}
+      {...groundTrace}
     />
 
     <trace
@@ -396,7 +405,7 @@ export const PowerSection = () => (
       name="BUCK_INPUT_CAP_GND"
       from=".C_BUCK_IN > .pin2"
       to="net.GND"
-      {...powerTrace}
+      {...groundTrace}
     />
     <trace
       name="BUCK_SWITCH"
@@ -414,7 +423,7 @@ export const PowerSection = () => (
       name="BUCK_DIODE_GND"
       from=".D_BUCK > .anode"
       to="net.GND"
-      {...powerTrace}
+      {...groundTrace}
     />
     <trace
       name="BUCK_BOOT_HIGH"
@@ -457,19 +466,19 @@ export const PowerSection = () => (
       name="BUCK_FB_GND"
       from=".R_FB_BOT > .pin2"
       to="net.GND"
-      {...logicTrace}
+      {...groundTrace}
     />
     <trace
       name="BUCK_GROUND"
       from=".U_BUCK > .GND"
       to="net.GND"
-      {...powerTrace}
+      {...groundTrace}
     />
     <trace
       name="BUCK_EP_GROUND"
       from=".U_BUCK > .EP"
       to="net.GND"
-      {...powerTrace}
+      {...groundTrace}
     />
     <trace
       name="PGOOD_PULLUP"
@@ -486,7 +495,7 @@ export const PowerSection = () => (
     <trace
       name="PGOOD_MCU"
       from=".U_BUCK > .PGOOD"
-      to=".MCU > .U1 > .GPIO12"
+      to="net.MCU_POWER_GOOD"
       schDisplayLabel="POWER_GOOD"
       {...logicTrace}
     />
@@ -502,7 +511,7 @@ export const PowerSection = () => (
           name={`${name}_GND`}
           from={`.${name} > .pin2`}
           to="net.GND"
-          {...powerTrace}
+          {...groundTrace}
         />
       </Fragment>
     ))}

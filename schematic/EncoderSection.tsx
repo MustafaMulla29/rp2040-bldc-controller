@@ -2,9 +2,9 @@ import { Fragment } from "react"
 import { logicTrace, sections, sheets } from "./config"
 
 const encoderChannels = [
-  { name: "A", connectorPin: "pin3", gpio: "GPIO13", schY: 5 },
-  { name: "B", connectorPin: "pin4", gpio: "GPIO14", schY: 0 },
-  { name: "Z", connectorPin: "pin5", gpio: "GPIO15", schY: -5 },
+  { name: "A", connectorPin: "pin3", schY: 5 },
+  { name: "B", connectorPin: "pin4", schY: 0 },
+  { name: "Z", connectorPin: "pin5", schY: -5 },
 ] as const
 
 export const EncoderSection = () => (
@@ -25,7 +25,7 @@ export const EncoderSection = () => (
       schSectionName={sections.encoder}
     />
 
-    {encoderChannels.map(({ name, connectorPin, gpio, schY }, index) => (
+    {encoderChannels.map(({ name, connectorPin, schY }, index) => (
       <Fragment key={name}>
         <resistor
           name={`R_ENC_${name}_TOP`}
@@ -83,7 +83,7 @@ export const EncoderSection = () => (
         <trace
           name={`ENC_${name}_GPIO`}
           from={`.R_ENC_${name}_TOP > .pin2`}
-          to={`.MCU > .U1 > .${gpio}`}
+          to={`net.MCU_ENC_${name}_GPIO`}
           schDisplayLabel={`ENC_${name}`}
           {...logicTrace}
         />

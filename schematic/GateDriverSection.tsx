@@ -1,6 +1,14 @@
 import { Fragment } from "react"
 import { DRV8323HRTAR } from "../imports/DRV8323HRTAR"
-import { logicTrace, sections, senseTrace, sheets } from "./config"
+import {
+  driverTrace,
+  groundTrace,
+  logicTrace,
+  powerTrace,
+  sections,
+  senseTrace,
+  sheets,
+} from "./config"
 
 const pwmChannels = [
   ["GPIO0", "INHA"],
@@ -15,8 +23,9 @@ export const GateDriverSection = () => (
   <>
     <DRV8323HRTAR
       name="U_GATE"
-      pcbX={4}
-      pcbY={-25}
+      pcbX={8}
+      pcbY={2}
+      pcbRotation={90}
       schX={-8}
       schY={0}
       schWidth={5.2}
@@ -43,16 +52,38 @@ export const GateDriverSection = () => (
       schSectionName={sections.gateDriver}
     />
 
+    <resistor
+      name="R_GATE_VM_LINK"
+      resistance="0"
+      footprint="1206"
+      pcbX={1}
+      pcbY={-6.5}
+      schX={-12}
+      schY={7.5}
+      schSheetName={sheets.motor}
+      schSectionName={sections.gateDriver}
+    />
     <capacitor
       name="C_GATE_VM"
-      capacitance="1uF"
-      footprint="1206"
-      pcbX={11}
-      pcbY={-32}
-      pcbRotation={90}
+      capacitance="100nF"
+      footprint="0603"
+      pcbX={7}
+      pcbY={-7}
       schRotation={270}
-      schX={-12}
-      schY={6.5}
+      schX={-9}
+      schY={7.5}
+      schSheetName={sheets.motor}
+      schSectionName={sections.gateDriver}
+    />
+    <capacitor
+      name="C_GATE_VM_BULK"
+      capacitance="10uF"
+      footprint="1206"
+      pcbX={12}
+      pcbY={-8}
+      schRotation={270}
+      schX={-6}
+      schY={7.5}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
@@ -60,8 +91,8 @@ export const GateDriverSection = () => (
       name="C_DVDD"
       capacitance="1uF"
       footprint="0603"
-      pcbX={3}
-      pcbY={-32}
+      pcbX={2}
+      pcbY={3}
       schRotation={270}
       schX={-10}
       schY={-6.5}
@@ -72,9 +103,9 @@ export const GateDriverSection = () => (
       name="C_CP"
       capacitance="47nF"
       footprint="0603"
-      pcbX={10}
-      pcbY={-27}
-      pcbRotation={90}
+      pcbX={6}
+      pcbY={-3.5}
+      pcbRotation={180}
       schOrientation="vertical"
       schX={-8}
       schY={6.5}
@@ -85,8 +116,8 @@ export const GateDriverSection = () => (
       name="C_VCP"
       capacitance="1uF"
       footprint="1206"
-      pcbX={11}
-      pcbY={-23}
+      pcbX={10}
+      pcbY={-4.5}
       pcbRotation={90}
       schOrientation="vertical"
       schX={-4}
@@ -98,8 +129,8 @@ export const GateDriverSection = () => (
       name="R_ENABLE_PD"
       resistance="100k"
       footprint="0603"
-      pcbX={-8}
-      pcbY={-28}
+      pcbX={-4.5}
+      pcbY={11}
       schRotation={270}
       schX={-13.6}
       schY={-3.2}
@@ -110,8 +141,8 @@ export const GateDriverSection = () => (
       name="R_FAULT_PU"
       resistance="10k"
       footprint="0603"
-      pcbX={-8}
-      pcbY={-24}
+      pcbX={15.5}
+      pcbY={5.5}
       schRotation={270}
       schX={-13.2}
       schY={-1}
@@ -122,8 +153,8 @@ export const GateDriverSection = () => (
       name="R_CAL_PD"
       resistance="100k"
       footprint="0603"
-      pcbX={-5}
-      pcbY={-32}
+      pcbX={-3}
+      pcbY={7.5}
       schRotation={270}
       schX={-13.6}
       schY={-5.2}
@@ -134,8 +165,9 @@ export const GateDriverSection = () => (
       name="R_GAIN"
       resistance="47k"
       footprint="0603"
-      pcbX={-2}
-      pcbY={-27}
+      pcbX={4.5}
+      pcbY={8.5}
+      pcbRotation={90}
       schRotation={270}
       schX={-8}
       schY={-8.5}
@@ -146,8 +178,9 @@ export const GateDriverSection = () => (
       name="R_IDRIVE"
       resistance="75k"
       footprint="0603"
-      pcbX={-2}
-      pcbY={-24}
+      pcbX={7.5}
+      pcbY={10.5}
+      pcbRotation={90}
       schRotation={270}
       schX={-5}
       schY={-8.5}
@@ -158,8 +191,9 @@ export const GateDriverSection = () => (
       name="R_VDS"
       resistance="0"
       footprint="0603"
-      pcbX={-2}
-      pcbY={-21}
+      pcbX={10.5}
+      pcbY={11}
+      pcbRotation={90}
       schRotation={270}
       schX={-2}
       schY={-8.5}
@@ -170,8 +204,9 @@ export const GateDriverSection = () => (
       name="R_VREF_TOP"
       resistance="10k"
       footprint="0603"
-      pcbX={-5}
-      pcbY={-17}
+      pcbX={13.5}
+      pcbY={11}
+      pcbRotation={90}
       schX={-8}
       schY={-5}
       schSheetName={sheets.motor}
@@ -181,8 +216,8 @@ export const GateDriverSection = () => (
       name="R_VREF_BOT"
       resistance="10k"
       footprint="0603"
-      pcbX={-5}
-      pcbY={-20}
+      pcbX={16.5}
+      pcbY={13}
       schRotation={270}
       schX={-5}
       schY={-5.5}
@@ -193,8 +228,10 @@ export const GateDriverSection = () => (
       name="C_VREF"
       capacitance="1uF"
       footprint="0603"
-      pcbX={-5}
-      pcbY={-23}
+      pcbX={5.05}
+      pcbY={2.25}
+      pcbRotation={90}
+      layer="bottom"
       schRotation={270}
       schX={-2}
       schY={-5.5}
@@ -206,7 +243,7 @@ export const GateDriverSection = () => (
       <Fragment key={driverPin}>
         <trace
           name={`PWM_${driverPin}`}
-          from={`.MCU > .U1 > .${gpio}`}
+          from={`net.MCU_PWM_${driverPin}`}
           to={`.U_GATE > .${driverPin}`}
           schDisplayLabel={driverPin}
           {...logicTrace}
@@ -228,7 +265,7 @@ export const GateDriverSection = () => (
     <trace
       name="GATE_FAULT"
       from=".U_GATE > .nFAULT"
-      to=".MCU > .U1 > .GPIO7"
+      to="net.MCU_GATE_FAULT"
       {...logicTrace}
     />
     <trace
@@ -245,7 +282,7 @@ export const GateDriverSection = () => (
     />
     <trace
       name="GATE_CAL"
-      from=".MCU > .U1 > .GPIO8"
+      from="net.MCU_GATE_CAL"
       to=".U_GATE > .CAL"
       {...logicTrace}
     />
@@ -263,65 +300,81 @@ export const GateDriverSection = () => (
     />
 
     <trace
-      name="GATE_VM"
-      from=".U_GATE > .VM"
-      to="net.VM"
+      name="GATE_VM_LINK_INPUT"
+      from="net.VM"
+      to=".R_GATE_VM_LINK > .pin1"
       schDisplayLabel="VM"
-      {...logicTrace}
+      {...powerTrace}
+    />
+    <trace
+      name="GATE_VM_LINK_OUTPUT"
+      from=".R_GATE_VM_LINK > .pin2"
+      to=".U_GATE > .VM"
+      {...driverTrace}
     />
     <trace
       name="GATE_VDRAIN"
       from=".U_GATE > .VDRAIN"
-      to="net.VM"
-      schDisplayLabel="VM"
-      {...logicTrace}
+      to=".R_GATE_VM_LINK > .pin2"
+      {...driverTrace}
     />
     <trace
       name="GATE_VM_DECOUPLE"
       from=".C_GATE_VM > .pin1"
-      to=".U_GATE > .VM"
-      schDisplayLabel="VM"
-      {...logicTrace}
+      to=".R_GATE_VM_LINK > .pin2"
+      {...driverTrace}
     />
     <trace
       name="GATE_VM_DECOUPLE_GND"
       from=".C_GATE_VM > .pin2"
       to="net.GND"
-      {...logicTrace}
+      {...groundTrace}
+    />
+    <trace
+      name="GATE_VM_BULK"
+      from=".C_GATE_VM_BULK > .pin1"
+      to=".R_GATE_VM_LINK > .pin2"
+      {...driverTrace}
+    />
+    <trace
+      name="GATE_VM_BULK_GND"
+      from=".C_GATE_VM_BULK > .pin2"
+      to="net.GND"
+      {...groundTrace}
     />
     <trace
       name="CHARGE_PUMP_HIGH"
       from=".C_CP > .pin1"
       to=".U_GATE > .CPH"
       schDisplayLabel="CPH"
-      {...logicTrace}
+      {...driverTrace}
     />
     <trace
       name="CHARGE_PUMP_LOW"
       from=".C_CP > .pin2"
       to=".U_GATE > .CPL"
       schDisplayLabel="CPL"
-      {...logicTrace}
+      {...driverTrace}
     />
     <trace
       name="VCP_CAP_HIGH"
       from=".C_VCP > .pin1"
       to=".U_GATE > .VCP"
       schDisplayLabel="VCP"
-      {...logicTrace}
+      {...driverTrace}
     />
     <trace
       name="VCP_CAP_VM"
       from=".C_VCP > .pin2"
-      to="net.VM"
-      {...logicTrace}
+      to=".R_GATE_VM_LINK > .pin2"
+      {...driverTrace}
     />
     <trace
       name="DVDD_DECOUPLE"
       from=".C_DVDD > .pin1"
       to=".U_GATE > .DVDD"
       schDisplayLabel="DVDD"
-      {...logicTrace}
+      {...driverTrace}
     />
     <trace
       name="DVDD_DECOUPLE_GND"
@@ -342,7 +395,7 @@ export const GateDriverSection = () => (
       from=".U_GATE > .GAIN"
       to=".R_GAIN > .pin1"
       schDisplayLabel="GAIN_SET"
-      {...logicTrace}
+      {...driverTrace}
     />
     <trace
       name="GAIN_CONFIG_GND"
@@ -355,7 +408,7 @@ export const GateDriverSection = () => (
       from=".U_GATE > .IDRIVE"
       to=".R_IDRIVE > .pin1"
       schDisplayLabel="IDRIVE_SET"
-      {...logicTrace}
+      {...driverTrace}
     />
     <trace
       name="IDRIVE_CONFIG_GND"
@@ -368,7 +421,7 @@ export const GateDriverSection = () => (
       from=".U_GATE > .VDS"
       to=".R_VDS > .pin1"
       schDisplayLabel="VDS_OCP"
-      {...logicTrace}
+      {...driverTrace}
     />
     <trace
       name="VDS_CONFIG_GND"
