@@ -8,7 +8,9 @@ import { SWPA6045S150MT } from "../imports/SWPA6045S150MT"
 import { WJ500V_5_08_2P } from "../imports/WJ500V_5_08_2P"
 import {
   groundTrace,
+  highCurrentTrace,
   logicTrace,
+  motorTrace,
   powerTrace,
   sections,
   senseTrace,
@@ -22,7 +24,7 @@ export const PowerSection = () => (
       pcbX={-52}
       pcbY={34}
       pcbRotation={90}
-      schX={-12}
+      schX={-12.12}
       schY={5}
       schSheetName={sheets.power}
       schSectionName={sections.inputProtection}
@@ -35,7 +37,7 @@ export const PowerSection = () => (
       footprint="1812"
       pcbX={-43}
       pcbY={34}
-      schX={-9}
+      schX={-8.88}
       schY={5}
       schSheetName={sheets.power}
       schSectionName={sections.inputProtection}
@@ -46,7 +48,7 @@ export const PowerSection = () => (
       footprint="2512"
       manufacturerPartNumber="RLP25FEGMR005"
       supplierPartNumbers={{ jlcpcb: ["C393074"] }}
-      pcbX={-22}
+      pcbX={-34}
       pcbY={34}
       schX={-8}
       schY={-1}
@@ -133,7 +135,8 @@ export const PowerSection = () => (
       noConnect={["pin4"]}
       pcbX={-5.5}
       pcbY={25}
-      schX={1}
+      pcbRotation={270}
+      schX={0.35}
       schY={-4}
       schWidth={2.2}
       schHeight={2.6}
@@ -170,11 +173,11 @@ export const PowerSection = () => (
       name="C_BOOT_BUCK"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-9}
-      pcbY={30.5}
-      pcbRotation={90}
+      pcbX={-5.5}
+      pcbY={29}
+      pcbRotation={0}
       schOrientation="vertical"
-      schX={1}
+      schX={1.65}
       schY={-7}
       schSheetName={sheets.power}
       schSectionName={sections.buck}
@@ -184,9 +187,9 @@ export const PowerSection = () => (
       capacitance="4.7uF"
       footprint="1206"
       maxDecouplingTraceLength="5mm"
-      pcbX={-10.6}
-      pcbY={25.62}
-      pcbRotation={90}
+      pcbX={-5.7}
+      pcbY={20.85}
+      pcbRotation={0}
       schRotation={270}
       schX={-2}
       schY={-6}
@@ -221,7 +224,7 @@ export const PowerSection = () => (
       name="R_BUCK_EN"
       resistance="100k"
       footprint="0603"
-      pcbX={-2}
+      pcbX={-1.5}
       pcbY={19.5}
       schX={-1}
       schY={-2}
@@ -257,8 +260,8 @@ export const PowerSection = () => (
       name="R_PGOOD"
       resistance="10k"
       footprint="0603"
-      pcbX={-4}
-      pcbY={30}
+      pcbX={-3.5}
+      pcbY={33}
       pcbRotation={180}
       schX={4}
       schY={-1}
@@ -270,14 +273,14 @@ export const PowerSection = () => (
       name="POWER_INPUT_POS"
       from=".J_POWER > .pin1"
       to=".F_INPUT > .pin1"
-      {...powerTrace}
+      {...highCurrentTrace}
     />
     <trace
       name="POWER_INPUT_FUSED"
       from=".F_INPUT > .pin2"
       to=".R_BUS_SHUNT > .pin1"
       schDisplayLabel="VIN_FUSED"
-      {...powerTrace}
+      {...highCurrentTrace}
     />
     <trace
       name="POWER_INPUT_NEG"
@@ -290,13 +293,13 @@ export const PowerSection = () => (
       from=".R_BUS_SHUNT > .pin2"
       to="net.VM"
       schDisplayLabel="VM"
-      {...powerTrace}
+      {...highCurrentTrace}
     />
     <trace
       name="TVS_VM"
       from=".D_TVS > .cathode"
       to="net.VM"
-      {...powerTrace}
+      {...highCurrentTrace}
     />
     <trace
       name="TVS_GND"
@@ -304,22 +307,26 @@ export const PowerSection = () => (
       to="net.GND"
       {...groundTrace}
     />
-    {["C_VM_BULK1", "C_VM_BULK2", "C_VM_HF"].map((name) => (
-      <Fragment key={name}>
-        <trace
-          name={`${name}_VM`}
-          from={`.${name} > .pin1`}
-          to="net.VM"
-          {...powerTrace}
-        />
-        <trace
-          name={`${name}_GND`}
-          from={`.${name} > .pin2`}
-          to="net.GND"
-          {...groundTrace}
-        />
-      </Fragment>
-    ))}
+    {["C_VM_BULK1", "C_VM_BULK2", "C_VM_HF"].map((name) => {
+      const capacitorTrace = name === "C_VM_HF" ? powerTrace : motorTrace
+
+      return (
+        <Fragment key={name}>
+          <trace
+            name={`${name}_VM`}
+            from={`.${name} > .pin1`}
+            to="net.VM"
+            {...capacitorTrace}
+          />
+          <trace
+            name={`${name}_GND`}
+            from={`.${name} > .pin2`}
+            to="net.GND"
+            {...groundTrace}
+          />
+        </Fragment>
+      )
+    })}
 
     <trace
       name="BUS_SENSE_POS"
@@ -404,7 +411,7 @@ export const PowerSection = () => (
     <trace
       name="BUCK_INPUT_CAP_GND"
       from=".C_BUCK_IN > .pin2"
-      to=".U_BUCK > .GND"
+      to=".U_BUCK > .EP"
       {...groundTrace}
     />
     <trace

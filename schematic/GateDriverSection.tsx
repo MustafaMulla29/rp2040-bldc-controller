@@ -26,7 +26,7 @@ export const GateDriverSection = () => (
       pcbX={8}
       pcbY={2}
       pcbRotation={90}
-      schX={-8}
+      schX={-8.4}
       schY={0}
       schWidth={5.2}
       schHeight={5.8}
@@ -132,7 +132,7 @@ export const GateDriverSection = () => (
       pcbX={-4.5}
       pcbY={11}
       schRotation={270}
-      schX={-13.6}
+      schX={-13.9}
       schY={-3.2}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
@@ -144,7 +144,7 @@ export const GateDriverSection = () => (
       pcbX={15.5}
       pcbY={5.5}
       schRotation={270}
-      schX={-13.2}
+      schX={-13.25}
       schY={-1}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
@@ -156,7 +156,7 @@ export const GateDriverSection = () => (
       pcbX={-3}
       pcbY={7.5}
       schRotation={270}
-      schX={-13.6}
+      schX={-13.25}
       schY={-5.2}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
@@ -187,6 +187,9 @@ export const GateDriverSection = () => (
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
+    {/* 0 ohm selects the DRV8323H minimum 60 mV VDS threshold. This is
+        catastrophic overcurrent/short-circuit protection; the 5 A operating
+        limit is enforced from the three phase-shunt ADC measurements. */}
     <resistor
       name="R_VDS"
       resistance="0"
@@ -207,7 +210,7 @@ export const GateDriverSection = () => (
       pcbX={0.5}
       pcbY={9.4}
       pcbRotation={270}
-      schX={-8}
+      schX={-7.6}
       schY={-5}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}

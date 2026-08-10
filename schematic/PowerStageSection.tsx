@@ -3,6 +3,7 @@ import { CSD18540Q5B } from "../imports/CSD18540Q5B"
 import { WJ500V_5_08_03P_14_00A } from "../imports/WJ500V_5_08_03P_14_00A"
 import {
   groundTrace,
+  highCurrentTrace,
   logicTrace,
   motorTrace,
   sections,
@@ -53,7 +54,7 @@ const phaseConfig: Array<{
     pcbX: 36,
     schX: 8.7,
     senseSchXPos: 3,
-    senseSchXNeg: 6.8,
+    senseSchXNeg: 6.65,
     connectorPin: "pin2",
     highGate: "GHB",
     switchNode: "SHB",
@@ -68,7 +69,7 @@ const phaseConfig: Array<{
     motorLabel: "W",
     pcbX: 22,
     schX: 13.2,
-    senseSchXPos: 11,
+    senseSchXPos: 11.15,
     senseSchXNeg: 15.4,
     connectorPin: "pin3",
     highGate: "GHC",
@@ -139,7 +140,7 @@ const PowerStagePhase = ({
       <CSD18540Q5B
         name={qLow}
         pcbX={pcbX}
-        pcbY={-8}
+        pcbY={0}
         pcbRotation={270}
         schX={schX}
         schY={-1}
@@ -164,7 +165,7 @@ const PowerStagePhase = ({
         resistance="10"
         footprint="0603"
         pcbX={pcbX - 5.5}
-        pcbY={-8}
+        pcbY={0}
         schX={schX - 2.8}
         schY={-2.7}
         schSheetName={sheets.motor}
@@ -175,7 +176,7 @@ const PowerStagePhase = ({
         resistance="100k"
         footprint="0603"
         pcbX={pcbX - 5.5}
-        pcbY={16}
+        pcbY={15}
         schRotation={270}
         schX={schX}
         schY={2.3}
@@ -187,7 +188,7 @@ const PowerStagePhase = ({
         resistance="100k"
         footprint="0603"
         pcbX={pcbX - 5.5}
-        pcbY={-13}
+        pcbY={-5}
         schRotation={270}
         schX={schX}
         schY={-7}
@@ -201,7 +202,7 @@ const PowerStagePhase = ({
         manufacturerPartNumber="RLP25FEGMR005"
         supplierPartNumbers={{ jlcpcb: ["C393074"] }}
         pcbX={pcbX}
-        pcbY={-20}
+        pcbY={-13}
         schRotation={270}
         schX={schX}
         schY={-9}
@@ -213,7 +214,7 @@ const PowerStagePhase = ({
         resistance="0"
         footprint="1206"
         pcbX={pcbX}
-        pcbY={14.5}
+        pcbY={12}
         pcbRotation={90}
         schRotation={270}
         schX={schX + 2.6}
@@ -226,7 +227,7 @@ const PowerStagePhase = ({
         resistance="0"
         footprint="0603"
         pcbX={pcbX - 3.5}
-        pcbY={-25}
+        pcbY={-19}
         pcbRotation={180}
         schX={senseSchXPos}
         schY={-12.5}
@@ -238,7 +239,7 @@ const PowerStagePhase = ({
         resistance="0"
         footprint="0603"
         pcbX={pcbX + 3.5}
-        pcbY={-25}
+        pcbY={-19}
         pcbRotation={180}
         schX={senseSchXNeg}
         schY={-12.5}
@@ -350,14 +351,14 @@ const PowerStagePhase = ({
         from={phaseNet}
         to={`.J_MOTOR > .${connectorPin}`}
         schDisplayLabel={motorLabel}
-        {...motorTrace}
+        {...highCurrentTrace}
       />
       <trace
         name={`${phase}_SHUNT_HIGH`}
         from={sourceNet}
         to={`.${shunt} > .pin1`}
         schDisplayLabel={`LS_${phase}`}
-        {...motorTrace}
+        {...highCurrentTrace}
       />
       <trace
         name={`${phase}_SHUNT_GND`}

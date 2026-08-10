@@ -33,6 +33,9 @@ export const driverTrace = {
 export const powerTrace = {
   thickness: "0.8mm",
 } as const
+export const highCurrentTrace = {
+  thickness: "1.5mm",
+} as const
 export const motorTrace = {
   thickness: "1.5mm",
 } as const

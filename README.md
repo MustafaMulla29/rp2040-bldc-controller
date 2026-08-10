@@ -53,3 +53,9 @@ The TMP102 defaults to comparator mode with an active-low alert. Its alert is
 ANDed in hardware with the RP2040 enable command, so an asserted temperature
 alert disables the DRV8323H even if firmware leaves GPIO6 high. Firmware should
 program and verify the desired temperature limits during startup.
+
+The DRV8323H VDS monitor is configured at its lowest 60 mV threshold for fast
+short-circuit protection. It is not a precise 5 A current limiter: firmware
+must use the three phase-shunt ADC channels to enforce the normal continuous
+and peak motor-current limits, and must disable the gate driver on an ADC
+overcurrent or `nFAULT` condition.
