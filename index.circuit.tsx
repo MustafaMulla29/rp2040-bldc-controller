@@ -1,14 +1,20 @@
-import { ControllerSection } from "./schematic/ControllerSection"
-import { EncoderSection } from "./schematic/EncoderSection"
-import { GateDriverSection } from "./schematic/GateDriverSection"
-import { PowerSection } from "./schematic/PowerSection"
-import { PowerStageSection } from "./schematic/PowerStageSection"
-import { ProtectionSection } from "./schematic/ProtectionSection"
-import { SchematicSheets } from "./schematic/SchematicSheets"
+import { ControllerSection } from "./schematic/ControllerSection";
+import { EncoderSection } from "./schematic/EncoderSection";
+import { GateDriverSection } from "./schematic/GateDriverSection";
+import { PowerSection } from "./schematic/PowerSection";
+import { PowerStageSection } from "./schematic/PowerStageSection";
+import { ProtectionSection } from "./schematic/ProtectionSection";
+import { SchematicSheets } from "./schematic/SchematicSheets";
 
 export default function Rp2040BldcController() {
   return (
-    <board width="120mm" height="90mm" layers={2}>
+    <board
+      width="120mm"
+      height="90mm"
+      layers={2}
+      minViaHoleDiameter="0.3mm"
+      minViaPadDiameter="0.45mm"
+    >
       <net name="GND" isGroundNet />
       <net name="V3V3" isPowerNet />
       <net name="V5" isPowerNet />
@@ -27,6 +33,27 @@ export default function Rp2040BldcController() {
       <GateDriverSection />
       <ProtectionSection />
       <PowerStageSection />
+
+      <copperpour
+        name="GND_TOP"
+        layer="top"
+        connectsTo="net.GND"
+        clearance="0.35mm"
+        padMargin="0.5mm"
+        traceMargin="0.5mm"
+        boardEdgeMargin="0.5mm"
+        coveredWithSolderMask
+      />
+      <copperpour
+        name="GND_BOTTOM"
+        layer="bottom"
+        connectsTo="net.GND"
+        clearance="0.35mm"
+        padMargin="0.5mm"
+        traceMargin="0.5mm"
+        boardEdgeMargin="0.5mm"
+        coveredWithSolderMask
+      />
 
       <hole diameter="3.2mm" pcbX={-56} pcbY={41} />
       <hole diameter="3.2mm" pcbX={56} pcbY={41} />
@@ -48,5 +75,5 @@ export default function Rp2040BldcController() {
       <silkscreentext text="POWER" fontSize="1mm" pcbX={-52} pcbY={28} />
       <silkscreentext text="U V W" fontSize="1mm" pcbX={52} pcbY={23} />
     </board>
-  )
+  );
 }

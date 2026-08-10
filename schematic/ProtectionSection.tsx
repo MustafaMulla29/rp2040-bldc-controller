@@ -22,11 +22,11 @@ export const ProtectionSection = () => (
     <capacitor
       name="C_TEMP"
       capacitance="100nF"
-      footprint="0603"
+      footprint="0402"
+      maxDecouplingTraceLength="2mm"
       pcbX={4}
-      pcbY={-20}
-      pcbRotation={180}
-      layer="bottom"
+      pcbY={-21.83}
+      pcbRotation={0}
       schRotation={270}
       schX={6}
       schY={2}
@@ -85,11 +85,11 @@ export const ProtectionSection = () => (
     <capacitor
       name="C_ENABLE_AND"
       capacitance="100nF"
-      footprint="0603"
+      footprint="0402"
+      maxDecouplingTraceLength="3.5mm"
       pcbX={-4}
-      pcbY={-20}
-      pcbRotation={216}
-      layer="bottom"
+      pcbY={-22.3}
+      pcbRotation={0}
       schRotation={270}
       schX={10}
       schY={-3}
@@ -111,7 +111,12 @@ export const ProtectionSection = () => (
       to=".U_TEMP > .V_POS"
       {...logicTrace}
     />
-    <trace name="TEMP_DECOUPLE_GND" from=".C_TEMP > .pin2" to="net.GND" {...logicTrace} />
+    <trace
+      name="TEMP_DECOUPLE_GND"
+      from=".C_TEMP > .pin2"
+      to=".U_TEMP > .GND"
+      {...logicTrace}
+    />
 
     <trace name="TEMP_SCL_PULLUP" from=".R_TEMP_SCL > .pin1" to="net.V3V3" {...logicTrace} />
     <trace
@@ -164,7 +169,12 @@ export const ProtectionSection = () => (
       to=".U_ENABLE_AND > .VCC"
       {...logicTrace}
     />
-    <trace name="ENABLE_AND_DECOUPLE_GND" from=".C_ENABLE_AND > .pin2" to="net.GND" {...logicTrace} />
+    <trace
+      name="ENABLE_AND_DECOUPLE_GND"
+      from=".C_ENABLE_AND > .pin2"
+      to=".U_ENABLE_AND > .GND"
+      {...logicTrace}
+    />
     <trace
       name="ENABLE_AND_MCU_COMMAND"
       from="net.MCU_GATE_ENABLE_CMD"

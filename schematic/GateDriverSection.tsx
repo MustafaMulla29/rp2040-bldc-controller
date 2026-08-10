@@ -91,7 +91,7 @@ export const GateDriverSection = () => (
       name="C_DVDD"
       capacitance="1uF"
       footprint="0603"
-      pcbX={2}
+      pcbX={0}
       pcbY={3}
       schRotation={270}
       schX={-10}
@@ -204,9 +204,9 @@ export const GateDriverSection = () => (
       name="R_VREF_TOP"
       resistance="10k"
       footprint="0603"
-      pcbX={13.5}
-      pcbY={11}
-      pcbRotation={90}
+      pcbX={0.5}
+      pcbY={9.4}
+      pcbRotation={270}
       schX={-8}
       schY={-5}
       schSheetName={sheets.motor}
@@ -216,8 +216,9 @@ export const GateDriverSection = () => (
       name="R_VREF_BOT"
       resistance="10k"
       footprint="0603"
-      pcbX={16.5}
-      pcbY={13}
+      pcbX={0.5}
+      pcbY={6}
+      pcbRotation={270}
       schRotation={270}
       schX={-5}
       schY={-5.5}
@@ -227,11 +228,11 @@ export const GateDriverSection = () => (
     <capacitor
       name="C_VREF"
       capacitance="1uF"
-      footprint="0603"
-      pcbX={5.05}
-      pcbY={2.25}
-      pcbRotation={90}
-      layer="bottom"
+      footprint="0402"
+      maxDecouplingTraceLength="5.5mm"
+      pcbX={3.41}
+      pcbY={2.9}
+      pcbRotation={180}
       schRotation={270}
       schX={-2}
       schY={-5.5}
@@ -395,7 +396,7 @@ export const GateDriverSection = () => (
       from=".U_GATE > .GAIN"
       to=".R_GAIN > .pin1"
       schDisplayLabel="GAIN_SET"
-      {...driverTrace}
+      {...logicTrace}
     />
     <trace
       name="GAIN_CONFIG_GND"
@@ -408,7 +409,7 @@ export const GateDriverSection = () => (
       from=".U_GATE > .IDRIVE"
       to=".R_IDRIVE > .pin1"
       schDisplayLabel="IDRIVE_SET"
-      {...driverTrace}
+      {...logicTrace}
     />
     <trace
       name="IDRIVE_CONFIG_GND"
@@ -421,7 +422,7 @@ export const GateDriverSection = () => (
       from=".U_GATE > .VDS"
       to=".R_VDS > .pin1"
       schDisplayLabel="VDS_OCP"
-      {...driverTrace}
+      {...logicTrace}
     />
     <trace
       name="VDS_CONFIG_GND"
@@ -465,7 +466,7 @@ export const GateDriverSection = () => (
     <trace
       name="VREF_CAP_GND"
       from=".C_VREF > .pin2"
-      to="net.GND"
+      to=".U_GATE > .AGND"
       {...logicTrace}
     />
     <trace

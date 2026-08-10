@@ -116,11 +116,11 @@ export const PowerSection = () => (
     <capacitor
       name="C_BUS_SENSE"
       capacitance="100nF"
-      footprint="0603"
+      footprint="0402"
+      maxDecouplingTraceLength="1.7mm"
       pcbX={-27.35}
-      pcbY={29.93}
-      pcbRotation={0}
-      layer="bottom"
+      pcbY={31.5}
+      pcbRotation={180}
       schRotation={270}
       schX={-5}
       schY={-6}
@@ -131,7 +131,7 @@ export const PowerSection = () => (
     <LMR16020PDDAR
       name="U_BUCK"
       noConnect={["pin4"]}
-      pcbX={-8.5}
+      pcbX={-5.5}
       pcbY={25}
       schX={1}
       schY={-4}
@@ -148,7 +148,7 @@ export const PowerSection = () => (
     />
     <SWPA6045S150MT
       name="L_BUCK"
-      pcbX={0}
+      pcbX={3}
       pcbY={25}
       schX={5}
       schY={-4}
@@ -157,7 +157,7 @@ export const PowerSection = () => (
     />
     <SS36
       name="D_BUCK"
-      pcbX={-2}
+      pcbX={1}
       pcbY={18}
       pcbRotation={90}
       schRotation={270}
@@ -170,7 +170,7 @@ export const PowerSection = () => (
       name="C_BOOT_BUCK"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-12}
+      pcbX={-9}
       pcbY={30.5}
       pcbRotation={90}
       schOrientation="vertical"
@@ -183,10 +183,10 @@ export const PowerSection = () => (
       name="C_BUCK_IN"
       capacitance="4.7uF"
       footprint="1206"
-      pcbX={-8.82}
-      pcbY={23.64}
-      pcbRotation={257}
-      layer="bottom"
+      maxDecouplingTraceLength="5mm"
+      pcbX={-10.6}
+      pcbY={25.62}
+      pcbRotation={90}
       schRotation={270}
       schX={-2}
       schY={-6}
@@ -197,7 +197,7 @@ export const PowerSection = () => (
       name="C_5V_BULK"
       capacitance="47uF"
       footprint="1210"
-      pcbX={8}
+      pcbX={11}
       pcbY={25}
       schRotation={270}
       schX={10}
@@ -221,7 +221,7 @@ export const PowerSection = () => (
       name="R_BUCK_EN"
       resistance="100k"
       footprint="0603"
-      pcbX={-7}
+      pcbX={-2}
       pcbY={19.5}
       schX={-1}
       schY={-2}
@@ -232,7 +232,7 @@ export const PowerSection = () => (
       name="R_FB_TOP"
       resistance="56.2k"
       footprint="0603"
-      pcbX={-3.5}
+      pcbX={-0.5}
       pcbY={30}
       pcbRotation={180}
       schX={8}
@@ -244,7 +244,7 @@ export const PowerSection = () => (
       name="R_FB_BOT"
       resistance="10k"
       footprint="0603"
-      pcbX={-3.5}
+      pcbX={-0.5}
       pcbY={33}
       pcbRotation={180}
       schRotation={270}
@@ -257,7 +257,7 @@ export const PowerSection = () => (
       name="R_PGOOD"
       resistance="10k"
       footprint="0603"
-      pcbX={-7}
+      pcbX={-4}
       pcbY={30}
       pcbRotation={180}
       schX={4}
@@ -373,7 +373,7 @@ export const PowerSection = () => (
     <trace
       name="BUS_SENSE_DECOUPLE_GND"
       from=".C_BUS_SENSE > .pin2"
-      to="net.GND"
+      to=".U_BUS_SENSE > .REF2"
       {...groundTrace}
     />
 
@@ -404,7 +404,7 @@ export const PowerSection = () => (
     <trace
       name="BUCK_INPUT_CAP_GND"
       from=".C_BUCK_IN > .pin2"
-      to="net.GND"
+      to=".U_BUCK > .GND"
       {...groundTrace}
     />
     <trace
