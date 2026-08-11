@@ -39,6 +39,7 @@ export const ProtectionSection = () => (
       footprint="0603"
       pcbX={0}
       pcbY={-16}
+      pcbRotation={90}
       schRotation={270}
       schX={-6}
       schY={3}
@@ -51,6 +52,7 @@ export const ProtectionSection = () => (
       footprint="0603"
       pcbX={4}
       pcbY={-16}
+      pcbRotation={90}
       schRotation={270}
       schX={-4}
       schY={3}
@@ -63,6 +65,7 @@ export const ProtectionSection = () => (
       footprint="0603"
       pcbX={8}
       pcbY={-16}
+      pcbRotation={90}
       schRotation={270}
       schX={-2}
       schY={3}
