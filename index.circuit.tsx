@@ -11,9 +11,9 @@ export default function Rp2040BldcController() {
     <board
       width="120mm"
       height="90mm"
-      layers={2}
       minViaHoleDiameter="0.3mm"
       minViaPadDiameter="0.45mm"
+      layers={2}
     >
       <net name="GND" isGroundNet />
       <net name="V3V3" isPowerNet />
