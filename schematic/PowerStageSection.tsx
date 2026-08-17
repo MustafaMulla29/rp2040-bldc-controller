@@ -122,6 +122,18 @@ const PowerStagePhase = ({
   const phaseSwitchTrace = {
     thickness: "0.2mm",
   } as const
+  const sensePosLinkPlacement =
+    phase === "B"
+      ? {
+          pcbX: 9.75,
+          pcbY: 7.5,
+          pcbRotation: 270 as const,
+        }
+      : {
+          pcbX: pcbX - 3.5,
+          pcbY: -19,
+          pcbRotation: 180 as const,
+        }
 
   return (
     <>
@@ -226,9 +238,7 @@ const PowerStagePhase = ({
         name={sensePosLink}
         resistance="0"
         footprint="0603"
-        pcbX={pcbX - 3.5}
-        pcbY={-19}
-        pcbRotation={180}
+        {...sensePosLinkPlacement}
         schX={senseSchXPos}
         schY={-12.5}
         schSheetName={sheets.motor}
