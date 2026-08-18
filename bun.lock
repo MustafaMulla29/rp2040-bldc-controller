@@ -5,7 +5,7 @@
     "": {
       "name": "@tsci/MustafaMulla29.rp2040-bldc-controller",
       "dependencies": {
-        "@tscircuit/common": "^0.0.57",
+        "@tscircuit/common": "^0.0.58",
       },
       "devDependencies": {
         "tscircuit": "0.0.2353",
@@ -164,7 +164,7 @@
 
     "@tscircuit/cli": ["@tscircuit/cli@0.1.1949", "", { "peerDependencies": { "circuit-json": "^0.0.464", "tscircuit": "*" }, "bin": { "tscircuit-cli": "cli/entrypoint.js" } }, "sha512-kTuAYTsCGkl7wYFlSQm7yOmQW4iq8DfrSKb/wQGQ0eHHXuBv7LFHn2zhrk/Xml3HOVetCbNuASkWW4MoimRsLg=="],
 
-    "@tscircuit/common": ["@tscircuit/common@0.0.57", "", {}, "sha512-lSD8vZhcJbzWfpjxLoU4VvJa/b2F4HZYFU2QDrOC9eyTBq312Ysbr6xDPJWghEFVyoSvR5xb/bV6RKchmCh3OA=="],
+    "@tscircuit/common": ["@tscircuit/common@0.0.58", "", {}, "sha512-6NGFKdKzy1q/uaqnn6vToPPfCRcPe0TmnT6O1NTgDMN50PIhvwjvyJQcgVJX0oC/N0lm0R4gXOcabNy/9meO3g=="],
 
     "@tscircuit/copper-pour-solver": ["@tscircuit/copper-pour-solver@0.0.47", "", { "dependencies": { "@tscircuit/manifold-2d": "^0.0.6" }, "peerDependencies": { "typescript": "^5" } }, "sha512-DIl08cmuxDAJHlJC4HiEexcuCeuqMg79TtN49euA7E40T1Uzhc1+kaXAnBu7qgjfa+U3mYaqOJsq72eMcHMd1g=="],
 

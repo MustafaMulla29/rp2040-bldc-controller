@@ -6,8 +6,8 @@ export const ProtectionSection = () => (
   <>
     <TMP102AIDRLR
       name="U_TEMP"
-      pcbX={56}
-      pcbY={0}
+      pcbX={51}
+      pcbY={-18}
       schX={2}
       schY={0}
       schWidth={2.4}
@@ -24,8 +24,8 @@ export const ProtectionSection = () => (
       capacitance="100nF"
       footprint="0402"
       maxDecouplingTraceLength="2mm"
-      pcbX={56}
-      pcbY={-1.83}
+      pcbX={51}
+      pcbY={-19.8}
       pcbRotation={0}
       schRotation={270}
       schX={6}
@@ -37,8 +37,8 @@ export const ProtectionSection = () => (
       name="R_TEMP_SCL"
       resistance="4.7k"
       footprint="0603"
-      pcbX={0}
-      pcbY={-16}
+      pcbX={16}
+      pcbY={-14}
       pcbRotation={90}
       schRotation={270}
       schX={-6}
@@ -50,8 +50,8 @@ export const ProtectionSection = () => (
       name="R_TEMP_SDA"
       resistance="4.7k"
       footprint="0603"
-      pcbX={4}
-      pcbY={-16}
+      pcbX={16}
+      pcbY={-18}
       pcbRotation={90}
       schRotation={270}
       schX={-4}
@@ -63,8 +63,8 @@ export const ProtectionSection = () => (
       name="R_TEMP_ALERT"
       resistance="10k"
       footprint="0603"
-      pcbX={8}
-      pcbY={-16}
+      pcbX={16}
+      pcbY={-22}
       pcbRotation={90}
       schRotation={270}
       schX={-2}
@@ -75,8 +75,8 @@ export const ProtectionSection = () => (
 
     <SN74LVC1G08DBVR
       name="U_ENABLE_AND"
-      pcbX={-4}
-      pcbY={-20}
+      pcbX={18}
+      pcbY={-28}
       schX={10}
       schY={0}
       schWidth={2}
@@ -90,8 +90,8 @@ export const ProtectionSection = () => (
       capacitance="100nF"
       footprint="0402"
       maxDecouplingTraceLength="3.5mm"
-      pcbX={-4}
-      pcbY={-22.3}
+      pcbX={18}
+      pcbY={-30.3}
       pcbRotation={0}
       schRotation={270}
       schX={10}

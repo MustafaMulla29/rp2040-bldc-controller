@@ -23,8 +23,8 @@ export const GateDriverSection = () => (
   <>
     <DRV8323HRTAR
       name="U_GATE"
-      pcbX={8}
-      pcbY={2}
+      pcbX={35.5}
+      pcbY={-20}
       pcbRotation={90}
       schX={-8.4}
       schY={0}
@@ -56,8 +56,8 @@ export const GateDriverSection = () => (
       name="R_GATE_VM_LINK"
       resistance="0"
       footprint="1206"
-      pcbX={1}
-      pcbY={-6.5}
+      pcbX={28.5}
+      pcbY={-28.5}
       schX={-12}
       schY={7.5}
       schSheetName={sheets.motor}
@@ -67,8 +67,8 @@ export const GateDriverSection = () => (
       name="C_GATE_VM"
       capacitance="100nF"
       footprint="0603"
-      pcbX={7}
-      pcbY={-7}
+      pcbX={34.5}
+      pcbY={-29}
       schRotation={270}
       schX={-9}
       schY={7.5}
@@ -79,8 +79,8 @@ export const GateDriverSection = () => (
       name="C_GATE_VM_BULK"
       capacitance="10uF"
       footprint="1206"
-      pcbX={12}
-      pcbY={-8}
+      pcbX={39.5}
+      pcbY={-30}
       schRotation={270}
       schX={-6}
       schY={7.5}
@@ -91,8 +91,8 @@ export const GateDriverSection = () => (
       name="C_DVDD"
       capacitance="1uF"
       footprint="0603"
-      pcbX={0}
-      pcbY={3}
+      pcbX={27.5}
+      pcbY={-19}
       schRotation={270}
       schX={-10}
       schY={-6.5}
@@ -103,8 +103,8 @@ export const GateDriverSection = () => (
       name="C_CP"
       capacitance="47nF"
       footprint="0603"
-      pcbX={6}
-      pcbY={-3.5}
+      pcbX={33.5}
+      pcbY={-25.5}
       pcbRotation={180}
       schOrientation="vertical"
       schX={-8}
@@ -116,8 +116,8 @@ export const GateDriverSection = () => (
       name="C_VCP"
       capacitance="1uF"
       footprint="1206"
-      pcbX={10}
-      pcbY={-4.5}
+      pcbX={37.5}
+      pcbY={-26.5}
       pcbRotation={90}
       schOrientation="vertical"
       schX={-4}
@@ -129,8 +129,8 @@ export const GateDriverSection = () => (
       name="R_ENABLE_PD"
       resistance="100k"
       footprint="0603"
-      pcbX={-4.5}
-      pcbY={11}
+      pcbX={23}
+      pcbY={-11}
       schRotation={270}
       schX={-13.9}
       schY={-3.2}
@@ -141,8 +141,8 @@ export const GateDriverSection = () => (
       name="R_FAULT_PU"
       resistance="10k"
       footprint="0603"
-      pcbX={15.5}
-      pcbY={5.5}
+      pcbX={29}
+      pcbY={-22}
       schRotation={270}
       schX={-13.25}
       schY={-1}
@@ -153,8 +153,8 @@ export const GateDriverSection = () => (
       name="R_CAL_PD"
       resistance="100k"
       footprint="0603"
-      pcbX={-3}
-      pcbY={7.5}
+      pcbX={24.5}
+      pcbY={-14.5}
       schRotation={270}
       schX={-13.25}
       schY={-5.2}
@@ -165,8 +165,8 @@ export const GateDriverSection = () => (
       name="R_GAIN"
       resistance="47k"
       footprint="0603"
-      pcbX={4.5}
-      pcbY={8.5}
+      pcbX={32}
+      pcbY={-13.5}
       pcbRotation={90}
       schRotation={270}
       schX={-8}
@@ -178,8 +178,8 @@ export const GateDriverSection = () => (
       name="R_IDRIVE"
       resistance="75k"
       footprint="0603"
-      pcbX={7.5}
-      pcbY={10.5}
+      pcbX={35}
+      pcbY={-11.5}
       pcbRotation={90}
       schRotation={270}
       schX={-5}
@@ -194,8 +194,8 @@ export const GateDriverSection = () => (
       name="R_VDS"
       resistance="0"
       footprint="0603"
-      pcbX={10.5}
-      pcbY={11}
+      pcbX={38}
+      pcbY={-11}
       pcbRotation={90}
       schRotation={270}
       schX={-2}
@@ -207,8 +207,8 @@ export const GateDriverSection = () => (
       name="R_VREF_TOP"
       resistance="10k"
       footprint="0603"
-      pcbX={0.5}
-      pcbY={9.4}
+      pcbX={28}
+      pcbY={-12.6}
       pcbRotation={270}
       schX={-7.6}
       schY={-5}
@@ -219,8 +219,8 @@ export const GateDriverSection = () => (
       name="R_VREF_BOT"
       resistance="10k"
       footprint="0603"
-      pcbX={0.5}
-      pcbY={6}
+      pcbX={28}
+      pcbY={-16}
       pcbRotation={270}
       schRotation={270}
       schX={-5}
@@ -233,8 +233,8 @@ export const GateDriverSection = () => (
       capacitance="1uF"
       footprint="0402"
       maxDecouplingTraceLength="5.5mm"
-      pcbX={3.41}
-      pcbY={2.9}
+      pcbX={30.91}
+      pcbY={-19.1}
       pcbRotation={180}
       schRotation={270}
       schX={-2}

@@ -16,8 +16,9 @@ export const EncoderSection = () => (
       pitch="2.54mm"
       pinLabels={["ENC_5V", "GND", "ENC_A", "ENC_B", "ENC_Z"]}
       showSilkscreenPinLabels
-      pcbX={-45}
-      pcbY={-40}
+      pcbX={-51}
+      pcbY={-23}
+      pcbRotation={90}
       schX={7}
       schY={0}
       schWidth={1.2}
@@ -31,8 +32,8 @@ export const EncoderSection = () => (
           name={`R_ENC_${name}_TOP`}
           resistance="10k"
           footprint="0603"
-          pcbX={-36}
-          pcbY={-33 - index * 3.5}
+          pcbX={-47}
+          pcbY={-24 - index * 5}
           schX={-10}
           schY={schY}
           schSheetName={sheets.encoder}
@@ -42,8 +43,8 @@ export const EncoderSection = () => (
           name={`R_ENC_${name}_BOT`}
           resistance="18k"
           footprint="0603"
-          pcbX={-32}
-          pcbY={-33 - index * 3.5}
+          pcbX={-43}
+          pcbY={-24 - index * 5}
           schRotation={270}
           schX={-5}
           schY={schY - 1}
@@ -54,8 +55,8 @@ export const EncoderSection = () => (
           name={`C_ENC_${name}`}
           capacitance="1nF"
           footprint="0603"
-          pcbX={-28}
-          pcbY={-33 - index * 3.5}
+          pcbX={-39}
+          pcbY={-24 - index * 5}
           schRotation={270}
           schX={-2}
           schY={schY - 1}

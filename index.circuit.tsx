@@ -9,8 +9,8 @@ import { SchematicSheets } from "./schematic/SchematicSheets";
 export default function Rp2040BldcController() {
   return (
     <board
-      width="120mm"
-      height="90mm"
+      width="110mm"
+      height="80mm"
       minViaHoleDiameter="0.3mm"
       minViaPadDiameter="0.45mm"
       layers={2}
@@ -55,25 +55,27 @@ export default function Rp2040BldcController() {
         coveredWithSolderMask
       />
 
-      <hole diameter="3.2mm" pcbX={-56} pcbY={41} />
-      <hole diameter="3.2mm" pcbX={56} pcbY={41} />
-      <hole diameter="3.2mm" pcbX={-56} pcbY={-41} />
-      <hole diameter="3.2mm" pcbX={56} pcbY={-41} />
+      <hole diameter="3.2mm" pcbX={-51} pcbY={36} />
+      <hole diameter="3.2mm" pcbX={51} pcbY={36} />
+      <hole diameter="3.2mm" pcbX={-51} pcbY={-36} />
+      <hole diameter="3.2mm" pcbX={51} pcbY={-36} />
 
       <silkscreentext
         text="RP2040 BLDC CONTROLLER"
         fontSize="1.5mm"
-        pcbX={9}
-        pcbY={41}
+        pcbX={0}
+        pcbY={37}
       />
       <silkscreentext
         text="12-24V / REV A PROTOTYPE"
         fontSize="1mm"
-        pcbX={10}
-        pcbY={38}
+        pcbX={0}
+        pcbY={34.5}
       />
-      <silkscreentext text="POWER" fontSize="1mm" pcbX={-52} pcbY={28} />
-      <silkscreentext text="U V W" fontSize="1mm" pcbX={52} pcbY={23} />
+      <silkscreentext text="12-24V POWER" fontSize="1mm" pcbX={-47} pcbY={21} />
+      <silkscreentext text="HALL" fontSize="0.9mm" pcbX={-48} pcbY={-16} />
+      <silkscreentext text="ENCODER" fontSize="0.9mm" pcbX={-47} pcbY={-35} />
+      <silkscreentext text="ONE MOTOR: U V W" fontSize="1mm" pcbX={35.5} pcbY={27} />
     </board>
   );
 }

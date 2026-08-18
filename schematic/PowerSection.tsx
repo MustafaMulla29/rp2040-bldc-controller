@@ -22,7 +22,7 @@ export const PowerSection = () => (
     <WJ500V_5_08_2P
       name="J_POWER"
       pcbX={-52}
-      pcbY={34}
+      pcbY={28}
       pcbRotation={90}
       schX={-12.12}
       schY={5}
@@ -36,7 +36,7 @@ export const PowerSection = () => (
       schShowRatings
       footprint="1812"
       pcbX={-43}
-      pcbY={34}
+      pcbY={28}
       schX={-8.88}
       schY={5}
       schSheetName={sheets.power}
@@ -48,8 +48,8 @@ export const PowerSection = () => (
       footprint="2512"
       manufacturerPartNumber="RLP25FEGMR005"
       supplierPartNumbers={{ jlcpcb: ["C393074"] }}
-      pcbX={-34}
-      pcbY={34}
+      pcbX={-35}
+      pcbY={28}
       schX={-8}
       schY={-1}
       schSheetName={sheets.power}
@@ -57,8 +57,8 @@ export const PowerSection = () => (
     />
     <SMBJ33A
       name="D_TVS"
-      pcbX={-14}
-      pcbY={35}
+      pcbX={-29}
+      pcbY={29}
       pcbRotation={90}
       schRotation={270}
       schX={-2}
@@ -68,8 +68,8 @@ export const PowerSection = () => (
     />
     <RVT1V101M0607
       name="C_VM_BULK1"
-      pcbX={-6}
-      pcbY={35}
+      pcbX={-23}
+      pcbY={27}
       schRotation={270}
       schX={0.5}
       schY={2}
@@ -78,8 +78,8 @@ export const PowerSection = () => (
     />
     <RVT1V101M0607
       name="C_VM_BULK2"
-      pcbX={4.5}
-      pcbY={35}
+      pcbX={-16}
+      pcbY={30}
       schRotation={270}
       schX={3}
       schY={2}
@@ -90,8 +90,8 @@ export const PowerSection = () => (
       name="C_VM_HF"
       capacitance="1uF"
       footprint="1206"
-      pcbX={13}
-      pcbY={34}
+      pcbX={-9.5}
+      pcbY={27}
       schRotation={270}
       schX={5.5}
       schY={2}
@@ -102,8 +102,8 @@ export const PowerSection = () => (
     <INA240A1PWR
       name="U_BUS_SENSE"
       noConnect={["NC"]}
-      pcbX={-28}
-      pcbY={27}
+      pcbX={-35}
+      pcbY={21}
       schX={-8}
       schY={-4}
       schWidth={2.15}
@@ -120,8 +120,8 @@ export const PowerSection = () => (
       capacitance="100nF"
       footprint="0402"
       maxDecouplingTraceLength="1.7mm"
-      pcbX={-27.35}
-      pcbY={31.5}
+      pcbX={-34.35}
+      pcbY={25.5}
       pcbRotation={180}
       schRotation={270}
       schX={-5}
@@ -133,8 +133,8 @@ export const PowerSection = () => (
     <LMR16020PDDAR
       name="U_BUCK"
       noConnect={["pin4"]}
-      pcbX={-5.5}
-      pcbY={25}
+      pcbX={-26}
+      pcbY={16}
       pcbRotation={270}
       schX={0.35}
       schY={-4}
@@ -151,8 +151,8 @@ export const PowerSection = () => (
     />
     <SWPA6045S150MT
       name="L_BUCK"
-      pcbX={3}
-      pcbY={25}
+      pcbX={-17}
+      pcbY={16}
       schX={5}
       schY={-4}
       schSheetName={sheets.power}
@@ -160,8 +160,8 @@ export const PowerSection = () => (
     />
     <SS36
       name="D_BUCK"
-      pcbX={1}
-      pcbY={18}
+      pcbX={-19}
+      pcbY={9}
       pcbRotation={90}
       schRotation={270}
       schX={5}
@@ -173,8 +173,8 @@ export const PowerSection = () => (
       name="C_BOOT_BUCK"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-5.5}
-      pcbY={29}
+      pcbX={-26}
+      pcbY={20}
       pcbRotation={0}
       schOrientation="vertical"
       schX={1.65}
@@ -187,8 +187,8 @@ export const PowerSection = () => (
       capacitance="4.7uF"
       footprint="1206"
       maxDecouplingTraceLength="5mm"
-      pcbX={-5.7}
-      pcbY={20.85}
+      pcbX={-26}
+      pcbY={11.85}
       pcbRotation={0}
       schRotation={270}
       schX={-2}
@@ -200,8 +200,8 @@ export const PowerSection = () => (
       name="C_5V_BULK"
       capacitance="47uF"
       footprint="1210"
-      pcbX={11}
-      pcbY={25}
+      pcbX={-11}
+      pcbY={16}
       schRotation={270}
       schX={10}
       schY={-6}
@@ -212,8 +212,8 @@ export const PowerSection = () => (
       name="C_5V_HF"
       capacitance="100nF"
       footprint="0603"
-      pcbX={12}
-      pcbY={21}
+      pcbX={-12}
+      pcbY={12}
       schRotation={270}
       schX={12}
       schY={-6}
@@ -224,8 +224,8 @@ export const PowerSection = () => (
       name="R_BUCK_EN"
       resistance="100k"
       footprint="0603"
-      pcbX={-1.5}
-      pcbY={19.5}
+      pcbX={-22}
+      pcbY={10.5}
       schX={-1}
       schY={-2}
       schSheetName={sheets.power}
@@ -235,8 +235,8 @@ export const PowerSection = () => (
       name="R_FB_TOP"
       resistance="56.2k"
       footprint="0603"
-      pcbX={-0.5}
-      pcbY={30}
+      pcbX={-18}
+      pcbY={21}
       pcbRotation={180}
       schX={8}
       schY={-2}
@@ -247,8 +247,8 @@ export const PowerSection = () => (
       name="R_FB_BOT"
       resistance="10k"
       footprint="0603"
-      pcbX={-0.5}
-      pcbY={33}
+      pcbX={-15}
+      pcbY={21}
       pcbRotation={180}
       schRotation={270}
       schX={10}
@@ -260,8 +260,8 @@ export const PowerSection = () => (
       name="R_PGOOD"
       resistance="10k"
       footprint="0603"
-      pcbX={-3.5}
-      pcbY={33}
+      pcbX={-21}
+      pcbY={21}
       pcbRotation={180}
       schX={4}
       schY={-1}

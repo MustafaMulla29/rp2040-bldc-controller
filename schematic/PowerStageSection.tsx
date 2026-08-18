@@ -35,7 +35,7 @@ const phaseConfig: Array<{
   {
     phase: "A",
     motorLabel: "U",
-    pcbX: 50,
+    pcbX: 22,
     schX: 3.8,
     senseSchXPos: -5.9,
     senseSchXNeg: -1.5,
@@ -51,7 +51,7 @@ const phaseConfig: Array<{
   {
     phase: "B",
     motorLabel: "V",
-    pcbX: 36,
+    pcbX: 35.5,
     schX: 8.7,
     senseSchXPos: 3,
     senseSchXNeg: 6.65,
@@ -67,7 +67,7 @@ const phaseConfig: Array<{
   {
     phase: "C",
     motorLabel: "W",
-    pcbX: 22,
+    pcbX: 49,
     schX: 13.2,
     senseSchXPos: 11.15,
     senseSchXNeg: 15.4,
@@ -122,25 +122,18 @@ const PowerStagePhase = ({
   const phaseSwitchTrace = {
     thickness: "0.2mm",
   } as const
-  const sensePosLinkPlacement =
-    phase === "B"
-      ? {
-          pcbX: 9.75,
-          pcbY: 7.5,
-          pcbRotation: 270 as const,
-        }
-      : {
-          pcbX: pcbX - 3.5,
-          pcbY: -19,
-          pcbRotation: 180 as const,
-        }
+  const sensePosLinkPlacement = {
+    pcbX: pcbX - 3.5,
+    pcbY: -8.5,
+    pcbRotation: 180 as const,
+  }
 
   return (
     <>
       <CSD18540Q5B
         name={qHigh}
         pcbX={pcbX}
-        pcbY={20}
+        pcbY={22}
         pcbRotation={270}
         schX={schX}
         schY={5.5}
@@ -152,7 +145,7 @@ const PowerStagePhase = ({
       <CSD18540Q5B
         name={qLow}
         pcbX={pcbX}
-        pcbY={0}
+        pcbY={8}
         pcbRotation={270}
         schX={schX}
         schY={-1}
@@ -166,7 +159,7 @@ const PowerStagePhase = ({
         resistance="10"
         footprint="0603"
         pcbX={pcbX - 5.5}
-        pcbY={20}
+        pcbY={22}
         schX={schX - 2.8}
         schY={7.2}
         schSheetName={sheets.motor}
@@ -177,7 +170,7 @@ const PowerStagePhase = ({
         resistance="10"
         footprint="0603"
         pcbX={pcbX - 5.5}
-        pcbY={0}
+        pcbY={8}
         schX={schX - 2.8}
         schY={-2.7}
         schSheetName={sheets.motor}
@@ -188,7 +181,7 @@ const PowerStagePhase = ({
         resistance="100k"
         footprint="0603"
         pcbX={pcbX - 5.5}
-        pcbY={15}
+        pcbY={17}
         schRotation={270}
         schX={schX}
         schY={2.3}
@@ -200,7 +193,7 @@ const PowerStagePhase = ({
         resistance="100k"
         footprint="0603"
         pcbX={pcbX - 5.5}
-        pcbY={-5}
+        pcbY={3}
         schRotation={270}
         schX={schX}
         schY={-7}
@@ -214,7 +207,7 @@ const PowerStagePhase = ({
         manufacturerPartNumber="RLP25FEGMR005"
         supplierPartNumbers={{ jlcpcb: ["C393074"] }}
         pcbX={pcbX}
-        pcbY={-13}
+        pcbY={-3}
         schRotation={270}
         schX={schX}
         schY={-9}
@@ -226,7 +219,7 @@ const PowerStagePhase = ({
         resistance="0"
         footprint="1206"
         pcbX={pcbX}
-        pcbY={12}
+        pcbY={15}
         pcbRotation={90}
         schRotation={270}
         schX={schX + 2.6}
@@ -249,7 +242,7 @@ const PowerStagePhase = ({
         resistance="0"
         footprint="0603"
         pcbX={pcbX + 3.5}
-        pcbY={-19}
+        pcbY={-8.5}
         pcbRotation={180}
         schX={senseSchXNeg}
         schY={-12.5}
@@ -414,8 +407,8 @@ export const PowerStageSection = () => (
   <>
     <WJ500V_5_08_03P_14_00A
       name="J_MOTOR"
-      pcbX={37}
-      pcbY={31}
+      pcbX={35.5}
+      pcbY={34}
       pcbRotation={180}
       schX={9}
       schY={9}
