@@ -367,7 +367,7 @@ const PowerStagePhase = ({
         name={`${phase}_SHUNT_GND`}
         from={`.${shunt} > .pin2`}
         to="net.GND"
-        {...groundTrace}
+        {...highCurrentTrace}
       />
       <trace
         name={`${phase}_SHUNT_SENSE_POS_KELVIN`}

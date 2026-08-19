@@ -1,8 +1,9 @@
 import { INA240A1PWR } from "../imports/INA240A1PWR"
 import { Fragment } from "react"
+import { JFC2410_1500TS } from "../imports/JFC2410_1500TS"
 import { LMR16020PDDAR } from "../imports/LMR16020PDDAR"
-import { RVT1V101M0607 } from "../imports/RVT1V101M0607"
-import { SMBJ33A } from "../imports/SMBJ33A"
+import { RVT1H101M0607 } from "../imports/RVT1H101M0607"
+import { SMBJ30A } from "../imports/SMBJ30A"
 import { SS36 } from "../imports/SS36"
 import { SWPA6045S150MT } from "../imports/SWPA6045S150MT"
 import { WJ500V_5_08_2P } from "../imports/WJ500V_5_08_2P"
@@ -29,12 +30,9 @@ export const PowerSection = () => (
       schSheetName={sheets.power}
       schSectionName={sections.inputProtection}
     />
-    <fuse
+    <JFC2410_1500TS
       name="F_INPUT"
-      currentRating="5A"
-      voltageRating="32V"
       schShowRatings
-      footprint="1812"
       pcbX={-43}
       pcbY={28}
       schX={-8.88}
@@ -55,7 +53,7 @@ export const PowerSection = () => (
       schSheetName={sheets.power}
       schSectionName={sections.busSense}
     />
-    <SMBJ33A
+    <SMBJ30A
       name="D_TVS"
       pcbX={-29}
       pcbY={29}
@@ -66,7 +64,7 @@ export const PowerSection = () => (
       schSheetName={sheets.power}
       schSectionName={sections.inputProtection}
     />
-    <RVT1V101M0607
+    <RVT1H101M0607
       name="C_VM_BULK1"
       pcbX={-23}
       pcbY={27}
@@ -76,7 +74,7 @@ export const PowerSection = () => (
       schSheetName={sheets.power}
       schSectionName={sections.inputProtection}
     />
-    <RVT1V101M0607
+    <RVT1H101M0607
       name="C_VM_BULK2"
       pcbX={-16}
       pcbY={30}
@@ -286,7 +284,7 @@ export const PowerSection = () => (
       name="POWER_INPUT_NEG"
       from=".J_POWER > .pin2"
       to="net.GND"
-      {...groundTrace}
+      {...highCurrentTrace}
     />
     <trace
       name="MOTOR_BUS"
@@ -297,15 +295,15 @@ export const PowerSection = () => (
     />
     <trace
       name="TVS_VM"
-      from=".D_TVS > .cathode"
+      from=".D_TVS > .C"
       to="net.VM"
       {...highCurrentTrace}
     />
     <trace
       name="TVS_GND"
-      from=".D_TVS > .anode"
+      from=".D_TVS > .A"
       to="net.GND"
-      {...groundTrace}
+      {...highCurrentTrace}
     />
     {["C_VM_BULK1", "C_VM_BULK2", "C_VM_HF"].map((name) => {
       const capacitorTrace = name === "C_VM_HF" ? powerTrace : motorTrace
@@ -322,7 +320,7 @@ export const PowerSection = () => (
             name={`${name}_GND`}
             from={`.${name} > .pin2`}
             to="net.GND"
-            {...groundTrace}
+            {...capacitorTrace}
           />
         </Fragment>
       )
@@ -355,8 +353,8 @@ export const PowerSection = () => (
     <trace
       name="BUS_SENSE_REF1"
       from=".U_BUS_SENSE > .REF1"
-      to="net.GND"
-      {...groundTrace}
+      to="net.V3V3"
+      {...logicTrace}
     />
     <trace
       name="BUS_SENSE_REF2"

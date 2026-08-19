@@ -10,13 +10,13 @@ single-motor BLDC controller.
 - Six CSD18540Q5B 60 V N-channel MOSFETs
 - Three 5 mOhm low-side phase shunts
 - DRV8323 internal current-sense amplifiers connected to RP2040 ADC0-ADC2
-- INA240 high-side DC-bus current monitor connected to ADC3
+- INA240 high-side bidirectional DC-bus current monitor connected to ADC3
 - 60 V-input LMR16020 5 V buck supply
 - 5 V Hall-sensor connector with 5 V-to-3.3 V dividers and RC filtering
 - Optional 5 V quadrature encoder connector with filtered A, B and index inputs
 - TMP102 power-stage temperature monitor with a hardware gate-enable interlock
 - DRV8323H VDS overcurrent shutdown configured for its lowest 0.06 V threshold
-- 5 A input fuse, 33 V TVS protection and 200 uF bulk bus capacitance
+- 5 A input fuse, 30 V TVS protection and 200 uF of 50 V bulk bus capacitance
 
 ## Firmware-facing signals
 
@@ -39,15 +39,23 @@ single-motor BLDC controller.
 ## Revision status
 
 The first-pass schematic and component placement are complete. Autorouting uses
-tscircuit's default router (`routingDisabled` has been removed). The route must
-be completed and pass PCB DRC before fabrication. High-current motor and bus
-routes also require a manual copper and thermal review.
+tscircuit's default router (`routingDisabled` has been removed). The generated
+route currently passes tscircuit's electrical and placement diagnostics, but
+high-current motor and bus routes still require a manual copper and thermal
+review before fabrication.
 
 This is an engineering prototype, not a production-ready motor drive. Before
 fabrication, verify the regulator compensation and magnetics, gate-drive
 settings, MOSFET thermal limits, shunt power rating, creepage/clearance,
 regenerative-energy handling, connector current rating and PCB copper
 temperature rise against the final motor and power-supply specifications.
+
+The INA240 reference inputs are split between 3.3 V and GND, placing zero bus
+current near the middle of the ADC range. Firmware must calibrate this zero
+offset and subtract it when calculating signed bus current. This makes reverse
+current visible, but it does not absorb regenerative energy; the supply or an
+external braking/clamping strategy must still keep VM within the hardware
+ratings.
 
 The TMP102 defaults to comparator mode with an active-low alert. Its alert is
 ANDed in hardware with the RP2040 enable command, so an asserted temperature
