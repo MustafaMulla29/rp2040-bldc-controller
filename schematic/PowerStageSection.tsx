@@ -16,6 +16,24 @@ type PhaseName = "A" | "B" | "C"
 const sourcePins = ["S1", "S2", "S3"] as const
 const drainPins = ["D1", "D3", "D4", "D5", "pin8_alt1"] as const
 
+// Keep the driver side of each Kelvin-sense link at the DRV8323. This gives
+// the adjacent 0.5 mm-pitch amplifier inputs short, parallel pad escapes; the
+// phase side of each link then runs independently to its shunt.
+const senseLinkPlacementByPhase = {
+  A: {
+    positive: { pcbX: 42, pcbY: -18.5, pcbRotation: 180 },
+    negative: { pcbX: 42, pcbY: -17.4, pcbRotation: 180 },
+  },
+  B: {
+    positive: { pcbX: 37.15, pcbY: -13, pcbRotation: 270 },
+    negative: { pcbX: 38.15, pcbY: -13, pcbRotation: 270 },
+  },
+  C: {
+    positive: { pcbX: 33.9, pcbY: -13, pcbRotation: 270 },
+    negative: { pcbX: 32.9, pcbY: -13, pcbRotation: 270 },
+  },
+} as const
+
 const phaseConfig: Array<{
   phase: PhaseName
   motorLabel: "U" | "V" | "W"
@@ -110,23 +128,15 @@ const PowerStagePhase = ({
   const senseNegLink = `R_CS${phase}_N_LINK`
   const phaseNet = `net.${motorLabel}`
   const sourceNet = `net.LS_${phase}`
-  const phaseLocalGateTrace = {
-    thickness: "0.2mm",
-  } as const
-  const phaseHighGateDriveTrace = {
-    thickness: "0.2mm",
-  } as const
-  const phaseLowGateDriveTrace = {
-    thickness: "0.2mm",
-  } as const
-  const phaseSwitchTrace = {
-    thickness: "0.2mm",
-  } as const
-  const sensePosLinkPlacement = {
-    pcbX: pcbX - 3.5,
-    pcbY: -8.5,
-    pcbRotation: 180 as const,
-  }
+  const phaseLocalGateTrace = logicTrace
+  const phaseHighGateDriveTrace = logicTrace
+  const phaseLowGateDriveTrace = logicTrace
+  const phaseSwitchTrace = logicTrace
+  // Package pins neck down only for the short pad escapes, then join the
+  // 1.5 mm phase/bus/shunt trunks. The large exposed D1 pad keeps the full
+  // motor-trace width; the auxiliary drain pins and three parallel source
+  // pins use the default local breakout width.
+  const senseLinkPlacement = senseLinkPlacementByPhase[phase]
 
   return (
     <>
@@ -134,7 +144,7 @@ const PowerStagePhase = ({
         name={qHigh}
         pcbX={pcbX}
         pcbY={22}
-        pcbRotation={270}
+        pcbRotation={0}
         schX={schX}
         schY={5.5}
         schWidth={1.6}
@@ -146,7 +156,7 @@ const PowerStagePhase = ({
         name={qLow}
         pcbX={pcbX}
         pcbY={8}
-        pcbRotation={270}
+        pcbRotation={0}
         schX={schX}
         schY={-1}
         schWidth={1.6}
@@ -158,8 +168,9 @@ const PowerStagePhase = ({
         name={gateHigh}
         resistance="10"
         footprint="0603"
-        pcbX={pcbX - 5.5}
-        pcbY={22}
+        pcbX={pcbX + 4}
+        pcbY={19}
+        pcbRotation={90}
         schX={schX - 2.8}
         schY={7.2}
         schSheetName={sheets.motor}
@@ -169,8 +180,9 @@ const PowerStagePhase = ({
         name={gateLow}
         resistance="10"
         footprint="0603"
-        pcbX={pcbX - 5.5}
-        pcbY={8}
+        pcbX={pcbX + 4}
+        pcbY={5}
+        pcbRotation={90}
         schX={schX - 2.8}
         schY={-2.7}
         schSheetName={sheets.motor}
@@ -180,8 +192,9 @@ const PowerStagePhase = ({
         name={gateHighPd}
         resistance="100k"
         footprint="0603"
-        pcbX={pcbX - 5.5}
-        pcbY={17}
+        pcbX={pcbX + 3.5}
+        pcbY={16}
+        pcbRotation={90}
         schRotation={270}
         schX={schX}
         schY={2.3}
@@ -192,8 +205,9 @@ const PowerStagePhase = ({
         name={gateLowPd}
         resistance="100k"
         footprint="0603"
-        pcbX={pcbX - 5.5}
-        pcbY={3}
+        pcbX={pcbX + 3.5}
+        pcbY={2}
+        pcbRotation={90}
         schRotation={270}
         schX={schX}
         schY={-7}
@@ -208,6 +222,7 @@ const PowerStagePhase = ({
         supplierPartNumbers={{ jlcpcb: ["C393074"] }}
         pcbX={pcbX}
         pcbY={-3}
+        pcbRotation={90}
         schRotation={270}
         schX={schX}
         schY={-9}
@@ -230,8 +245,8 @@ const PowerStagePhase = ({
       <resistor
         name={sensePosLink}
         resistance="0"
-        footprint="0603"
-        {...sensePosLinkPlacement}
+        footprint="0402"
+        {...senseLinkPlacement.positive}
         schX={senseSchXPos}
         schY={-12.5}
         schSheetName={sheets.motor}
@@ -240,10 +255,8 @@ const PowerStagePhase = ({
       <resistor
         name={senseNegLink}
         resistance="0"
-        footprint="0603"
-        pcbX={pcbX + 3.5}
-        pcbY={-8.5}
-        pcbRotation={180}
+        footprint="0402"
+        {...senseLinkPlacement.negative}
         schX={senseSchXNeg}
         schY={-12.5}
         schSheetName={sheets.motor}
@@ -255,7 +268,7 @@ const PowerStagePhase = ({
             name={`${qHigh}_${pin}_VM`}
             from={`.${qHigh} > .${pin}`}
             to="net.VM"
-            {...motorTrace}
+            {...(pin === "D1" ? motorTrace : logicTrace)}
           />
         </Fragment>
       ))}
@@ -265,7 +278,7 @@ const PowerStagePhase = ({
             name={`${qHigh}_${pin}_PHASE`}
             from={`.${qHigh} > .${pin}`}
             to={phaseNet}
-            {...motorTrace}
+            {...logicTrace}
           />
         </Fragment>
       ))}
@@ -275,7 +288,7 @@ const PowerStagePhase = ({
             name={`${qLow}_${pin}_PHASE`}
             from={`.${qLow} > .${pin}`}
             to={phaseNet}
-            {...motorTrace}
+            {...(pin === "D1" ? motorTrace : logicTrace)}
           />
         </Fragment>
       ))}
@@ -285,7 +298,7 @@ const PowerStagePhase = ({
             name={`${qLow}_${pin}_SHUNT`}
             from={`.${qLow} > .${pin}`}
             to={sourceNet}
-            {...motorTrace}
+            {...logicTrace}
           />
         </Fragment>
       ))}
@@ -367,7 +380,7 @@ const PowerStagePhase = ({
         name={`${phase}_SHUNT_GND`}
         from={`.${shunt} > .pin2`}
         to="net.GND"
-        {...highCurrentTrace}
+        {...groundTrace}
       />
       <trace
         name={`${phase}_SHUNT_SENSE_POS_KELVIN`}

@@ -1,12 +1,11 @@
 import { INA240A1PWR } from "../imports/INA240A1PWR"
+import { A_0451005_MRL } from "../imports/A_0451005_MRL"
 import { Fragment } from "react"
-import { JFC2410_1500TS } from "../imports/JFC2410_1500TS"
 import { LMR16020PDDAR } from "../imports/LMR16020PDDAR"
 import { RVT1H101M0607 } from "../imports/RVT1H101M0607"
 import { SMBJ30A } from "../imports/SMBJ30A"
 import { SS36 } from "../imports/SS36"
 import { SWPA6045S150MT } from "../imports/SWPA6045S150MT"
-import { WJ500V_5_08_2P } from "../imports/WJ500V_5_08_2P"
 import {
   groundTrace,
   highCurrentTrace,
@@ -20,23 +19,12 @@ import {
 
 export const PowerSection = () => (
   <>
-    <WJ500V_5_08_2P
-      name="J_POWER"
-      pcbX={-52}
-      pcbY={28}
-      pcbRotation={90}
-      schX={-12.12}
-      schY={5}
-      schSheetName={sheets.power}
-      schSectionName={sections.inputProtection}
-    />
-    <JFC2410_1500TS
+    <A_0451005_MRL
       name="F_INPUT"
-      schShowRatings
-      pcbX={-43}
+      pcbX={-13}
       pcbY={28}
-      schX={-8.88}
-      schY={5}
+      schX={-10}
+      schY={4}
       schSheetName={sheets.power}
       schSectionName={sections.inputProtection}
     />
@@ -46,16 +34,16 @@ export const PowerSection = () => (
       footprint="2512"
       manufacturerPartNumber="RLP25FEGMR005"
       supplierPartNumbers={{ jlcpcb: ["C393074"] }}
-      pcbX={-35}
-      pcbY={28}
-      schX={-8}
+      pcbX={-5}
+      pcbY={31}
+      schX={-7}
       schY={-1}
       schSheetName={sheets.power}
       schSectionName={sections.busSense}
     />
     <SMBJ30A
       name="D_TVS"
-      pcbX={-29}
+      pcbX={0}
       pcbY={29}
       pcbRotation={90}
       schRotation={270}
@@ -66,7 +54,7 @@ export const PowerSection = () => (
     />
     <RVT1H101M0607
       name="C_VM_BULK1"
-      pcbX={-23}
+      pcbX={7}
       pcbY={27}
       schRotation={270}
       schX={0.5}
@@ -76,7 +64,7 @@ export const PowerSection = () => (
     />
     <RVT1H101M0607
       name="C_VM_BULK2"
-      pcbX={-16}
+      pcbX={15}
       pcbY={30}
       schRotation={270}
       schX={3}
@@ -88,7 +76,7 @@ export const PowerSection = () => (
       name="C_VM_HF"
       capacitance="1uF"
       footprint="1206"
-      pcbX={-9.5}
+      pcbX={22}
       pcbY={27}
       schRotation={270}
       schX={5.5}
@@ -100,9 +88,9 @@ export const PowerSection = () => (
     <INA240A1PWR
       name="U_BUS_SENSE"
       noConnect={["NC"]}
-      pcbX={-35}
-      pcbY={21}
-      schX={-8}
+      pcbX={10}
+      pcbY={19}
+      schX={-7}
       schY={-4}
       schWidth={2.15}
       schHeight={2.8}
@@ -117,10 +105,10 @@ export const PowerSection = () => (
       name="C_BUS_SENSE"
       capacitance="100nF"
       footprint="0402"
-      maxDecouplingTraceLength="1.7mm"
-      pcbX={-34.35}
-      pcbY={25.5}
-      pcbRotation={180}
+      maxDecouplingTraceLength="2.5mm"
+      pcbX={11.015}
+      pcbY={23.5}
+      pcbRotation={0}
       schRotation={270}
       schX={-5}
       schY={-6}
@@ -258,9 +246,9 @@ export const PowerSection = () => (
       name="R_PGOOD"
       resistance="10k"
       footprint="0603"
-      pcbX={-21}
-      pcbY={21}
-      pcbRotation={180}
+      pcbX={-16}
+      pcbY={10}
+      pcbRotation={90}
       schX={4}
       schY={-1}
       schSheetName={sheets.power}
@@ -269,7 +257,7 @@ export const PowerSection = () => (
 
     <trace
       name="POWER_INPUT_POS"
-      from=".J_POWER > .pin1"
+      from="net.VIN_SELECTED"
       to=".F_INPUT > .pin1"
       {...highCurrentTrace}
     />
@@ -278,12 +266,6 @@ export const PowerSection = () => (
       from=".F_INPUT > .pin2"
       to=".R_BUS_SHUNT > .pin1"
       schDisplayLabel="VIN_FUSED"
-      {...highCurrentTrace}
-    />
-    <trace
-      name="POWER_INPUT_NEG"
-      from=".J_POWER > .pin2"
-      to="net.GND"
       {...highCurrentTrace}
     />
     <trace
@@ -303,7 +285,7 @@ export const PowerSection = () => (
       name="TVS_GND"
       from=".D_TVS > .A"
       to="net.GND"
-      {...highCurrentTrace}
+      {...groundTrace}
     />
     {["C_VM_BULK1", "C_VM_BULK2", "C_VM_HF"].map((name) => {
       const capacitorTrace = name === "C_VM_HF" ? powerTrace : motorTrace
@@ -320,7 +302,7 @@ export const PowerSection = () => (
             name={`${name}_GND`}
             from={`.${name} > .pin2`}
             to="net.GND"
-            {...capacitorTrace}
+            {...groundTrace}
           />
         </Fragment>
       )
@@ -353,7 +335,7 @@ export const PowerSection = () => (
     <trace
       name="BUS_SENSE_REF1"
       from=".U_BUS_SENSE > .REF1"
-      to="net.V3V3"
+      to=".C_BUS_SENSE > .pin1"
       {...logicTrace}
     />
     <trace

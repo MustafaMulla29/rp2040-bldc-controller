@@ -91,8 +91,9 @@ export const GateDriverSection = () => (
       name="C_DVDD"
       capacitance="1uF"
       footprint="0603"
-      pcbX={27.5}
-      pcbY={-19}
+      pcbX={32.5}
+      pcbY={-25}
+      pcbRotation={180}
       schRotation={270}
       schX={-10}
       schY={-6.5}
@@ -103,9 +104,9 @@ export const GateDriverSection = () => (
       name="C_CP"
       capacitance="47nF"
       footprint="0603"
-      pcbX={33.5}
-      pcbY={-25.5}
-      pcbRotation={180}
+      pcbX={41}
+      pcbY={-22}
+      pcbRotation={270}
       schOrientation="vertical"
       schX={-8}
       schY={6.5}
@@ -118,7 +119,7 @@ export const GateDriverSection = () => (
       footprint="1206"
       pcbX={37.5}
       pcbY={-26.5}
-      pcbRotation={90}
+      pcbRotation={270}
       schOrientation="vertical"
       schX={-4}
       schY={6.5}
@@ -141,8 +142,8 @@ export const GateDriverSection = () => (
       name="R_FAULT_PU"
       resistance="10k"
       footprint="0603"
-      pcbX={29}
-      pcbY={-22}
+      pcbX={30.3}
+      pcbY={-17.5}
       schRotation={270}
       schX={-13.25}
       schY={-1}
@@ -165,7 +166,7 @@ export const GateDriverSection = () => (
       name="R_GAIN"
       resistance="47k"
       footprint="0603"
-      pcbX={32}
+      pcbX={29.5}
       pcbY={-13.5}
       pcbRotation={90}
       schRotation={270}
@@ -178,9 +179,9 @@ export const GateDriverSection = () => (
       name="R_IDRIVE"
       resistance="75k"
       footprint="0603"
-      pcbX={35}
-      pcbY={-11.5}
-      pcbRotation={90}
+      pcbX={30.35}
+      pcbY={-20.75}
+      pcbRotation={180}
       schRotation={270}
       schX={-5}
       schY={-8.5}
@@ -194,8 +195,8 @@ export const GateDriverSection = () => (
       name="R_VDS"
       resistance="0"
       footprint="0603"
-      pcbX={38}
-      pcbY={-11}
+      pcbX={31.2}
+      pcbY={-13.5}
       pcbRotation={90}
       schRotation={270}
       schX={-2}
@@ -257,7 +258,7 @@ export const GateDriverSection = () => (
     <trace
       name="GATE_ENABLE_PD"
       from=".R_ENABLE_PD > .pin1"
-      to=".U_GATE > .ENABLE"
+      to=".U_ENABLE_AND > .Y"
       {...logicTrace}
     />
     <trace

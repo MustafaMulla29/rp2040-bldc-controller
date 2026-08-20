@@ -3,6 +3,7 @@ export const sheets = {
   hall: "hall",
   encoder: "encoder",
   protection: "protection",
+  powerInput: "power_input",
   power: "power",
   motor: "motor",
 } as const
@@ -11,6 +12,8 @@ export const sections = {
   hall: "hall_inputs",
   encoder: "encoder_inputs",
   temperature: "temperature_protection",
+  usbPd: "usb_pd_input",
+  inputSelection: "input_selection",
   inputProtection: "input_protection",
   buck: "five_volt_buck",
   busSense: "bus_current_sense",
@@ -18,15 +21,12 @@ export const sections = {
   powerStage: "power_stage",
 } as const
 
-export const logicTrace = {
-  thickness: "0.2mm",
-} as const
-export const senseTrace = {
-  thickness: "0.2mm",
-} as const
-export const groundTrace = {
-  thickness: "0.2mm",
-} as const
+// Low-current logic, sense, and ground branches use tscircuit's default trace
+// width. Explicit widths are reserved for connections that actually carry
+// switching, supply, or motor current.
+export const logicTrace = {} as const
+export const senseTrace = {} as const
+export const groundTrace = {} as const
 export const driverTrace = {
   thickness: "0.4mm",
 } as const

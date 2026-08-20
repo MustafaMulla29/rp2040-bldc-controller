@@ -5,6 +5,7 @@ import { PowerSection } from "./schematic/PowerSection";
 import { PowerStageSection } from "./schematic/PowerStageSection";
 import { ProtectionSection } from "./schematic/ProtectionSection";
 import { SchematicSheets } from "./schematic/SchematicSheets";
+import { UsbPdPowerSection } from "./schematic/UsbPdPowerSection";
 
 export default function Rp2040BldcController() {
   return (
@@ -19,6 +20,17 @@ export default function Rp2040BldcController() {
       <net name="V3V3" isPowerNet />
       <net name="V5" isPowerNet />
       <net name="VM" isPowerNet />
+      <net name="PD_VBUS_RAW" isPowerNet />
+      <net name="PD_CONTRACT" isPowerNet />
+      <net name="BARREL_RAW" isPowerNet />
+      <net name="VIN_SELECTED" isPowerNet />
+      <net name="PD_CC1" />
+      <net name="PD_CC2" />
+      <net name="PD_VBUS_SENSE" />
+      <net name="PD_SWITCH_GATE" />
+      <net name="MCU_TEMP_SCL" />
+      <net name="MCU_TEMP_SDA" />
+      <net name="PD_VSYS_3V3" />
       <net name="U" />
       <net name="V" />
       <net name="W" />
@@ -29,6 +41,7 @@ export default function Rp2040BldcController() {
       <SchematicSheets />
       <ControllerSection />
       <EncoderSection />
+      <UsbPdPowerSection />
       <PowerSection />
       <GateDriverSection />
       <ProtectionSection />
@@ -72,7 +85,8 @@ export default function Rp2040BldcController() {
         pcbX={0}
         pcbY={34.5}
       />
-      <silkscreentext text="12-24V POWER" fontSize="1mm" pcbX={-47} pcbY={21} />
+      <silkscreentext text="USB-C PD 12V" fontSize="0.8mm" pcbX={-29} pcbY={37.5} />
+      <silkscreentext text="BARREL 12-24V" fontSize="0.8mm" pcbX={-49} pcbY={10.5} />
       <silkscreentext text="HALL" fontSize="0.9mm" pcbX={-48} pcbY={-16} />
       <silkscreentext text="ENCODER" fontSize="0.9mm" pcbX={-47} pcbY={-35} />
       <silkscreentext text="ONE MOTOR: U V W" fontSize="1mm" pcbX={35.5} pcbY={27} />

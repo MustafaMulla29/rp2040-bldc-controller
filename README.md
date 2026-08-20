@@ -6,6 +6,9 @@ single-motor BLDC controller.
 ## Current architecture
 
 - Complete RP2040 support circuit from `@tscircuit/common`
+- Dedicated 12 V USB-C PD power input using an STUSB4500 standalone sink
+- Separate 12-24 V, 5 A barrel-jack input
+- Reverse-current-blocking LM74700 ideal-diode ORing before the input fuse
 - DRV8323H hardware-configured three-phase gate driver in six-PWM mode
 - Six CSD18540Q5B 60 V N-channel MOSFETs
 - Three 5 mOhm low-side phase shunts
@@ -17,6 +20,21 @@ single-motor BLDC controller.
 - TMP102 power-stage temperature monitor with a hardware gate-enable interlock
 - DRV8323H VDS overcurrent shutdown configured for its lowest 0.06 V threshold
 - 5 A input fuse, 30 V TVS protection and 200 uF of 50 V bulk bus capacitance
+
+The existing USB-C connector inside `Microcontroller_RP2040` remains the 5 V
+configuration/debug port. It is electrically separate from the new power-only
+USB-C PD connector.
+
+## USB-C PD provisioning
+
+Before relying on the PD connector for motor power, program the STUSB4500 NVM
+with PDO2 set to 12 V / 5 A and disable PDO3. The board uses the STUSB4500
+`POWER_OK2` output to close the PD power-path MOSFET only after an explicit PDO2
+contract, so an ordinary 5 V USB source cannot energize the motor bus.
+
+A 12 V / 5 A contract requires a PD source that explicitly offers that profile
+and a 5 A e-marked USB-C cable. The barrel connector is the XKB
+DC-012A-5A-2.0 (6.4 mm outer / 2.0 mm center), wired center-positive.
 
 ## Firmware-facing signals
 
@@ -55,7 +73,8 @@ current near the middle of the ADC range. Firmware must calibrate this zero
 offset and subtract it when calculating signed bus current. This makes reverse
 current visible, but it does not absorb regenerative energy; the supply or an
 external braking/clamping strategy must still keep VM within the hardware
-ratings.
+ratings. The input ideal-diode controllers intentionally prevent regenerated
+energy from flowing backward into either the USB-C source or barrel adapter.
 
 The TMP102 defaults to comparator mode with an active-low alert. Its alert is
 ANDed in hardware with the RP2040 enable command, so an asserted temperature

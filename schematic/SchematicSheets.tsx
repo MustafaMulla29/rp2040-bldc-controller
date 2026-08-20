@@ -31,13 +31,28 @@ export const SchematicSheets = () => (
     </schematicsheet>
 
     <schematicsheet
-      name={sheets.power}
-      displayName="12-24 V Input & Power Supplies"
+      name={sheets.powerInput}
+      displayName="USB-C PD & Barrel Power Input"
       sheetIndex={4}
     >
       <schematicsection
+        name={sections.usbPd}
+        displayName="USB-C PD 12 V Sink"
+      />
+      <schematicsection
+        name={sections.inputSelection}
+        displayName="Barrel Input & Reverse-Blocking ORing"
+      />
+    </schematicsheet>
+
+    <schematicsheet
+      name={sheets.power}
+      displayName="Input Protection, Bus Sense & 5 V Power"
+      sheetIndex={5}
+    >
+      <schematicsection
         name={sections.inputProtection}
-        displayName="Input Protection & Bulk Capacitance"
+        displayName="Selected Input Protection & Bulk Capacitance"
       />
       <schematicsection
         name={sections.busSense}
@@ -52,7 +67,7 @@ export const SchematicSheets = () => (
     <schematicsheet
       name={sheets.motor}
       displayName="Three-Phase BLDC Power Stage"
-      sheetIndex={5}
+      sheetIndex={6}
     >
       <schematicsection
         name={sections.gateDriver}
@@ -67,7 +82,7 @@ export const SchematicSheets = () => (
     <schematicsheet
       name={sheets.protection}
       displayName="Temperature & Hardware Protection"
-      sheetIndex={6}
+      sheetIndex={7}
     >
       <schematicsection
         name={sections.temperature}
