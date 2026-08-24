@@ -10,8 +10,8 @@ import { UsbPdPowerSection } from "./schematic/UsbPdPowerSection";
 export default function Rp2040BldcController() {
   return (
     <board
-      width="110mm"
-      height="80mm"
+      width="109mm"
+      height="78mm"
       minViaHoleDiameter="0.3mm"
       minViaPadDiameter="0.45mm"
       layers={2}
@@ -31,9 +31,9 @@ export default function Rp2040BldcController() {
       <net name="MCU_TEMP_SCL" />
       <net name="MCU_TEMP_SDA" />
       <net name="PD_VSYS_3V3" />
-      <net name="U" />
-      <net name="V" />
-      <net name="W" />
+      <net name="PHASE_U" />
+      <net name="PHASE_V" />
+      <net name="PHASE_W" />
       <net name="LS_A" />
       <net name="LS_B" />
       <net name="LS_C" />
@@ -68,10 +68,10 @@ export default function Rp2040BldcController() {
         coveredWithSolderMask
       />
 
-      <hole diameter="3.2mm" pcbX={-51} pcbY={36} />
-      <hole diameter="3.2mm" pcbX={51} pcbY={36} />
-      <hole diameter="3.2mm" pcbX={-51} pcbY={-36} />
-      <hole diameter="3.2mm" pcbX={51} pcbY={-36} />
+      <hole diameter="3.2mm" pcbX={-50.5} pcbY={35} />
+      <hole diameter="3.2mm" pcbX={50.5} pcbY={35} />
+      <hole diameter="3.2mm" pcbX={-50.5} pcbY={-35} />
+      <hole diameter="3.2mm" pcbX={50.5} pcbY={-35} />
 
       <silkscreentext
         text="RP2040 BLDC CONTROLLER"
@@ -81,9 +81,9 @@ export default function Rp2040BldcController() {
       />
       <silkscreentext
         text="12-24V / REV A PROTOTYPE"
-        fontSize="1mm"
-        pcbX={0}
-        pcbY={34.5}
+        fontSize="0.8mm"
+        pcbX={34}
+        pcbY={37.5}
       />
       <silkscreentext text="USB-C PD 12V" fontSize="0.8mm" pcbX={-29} pcbY={37.5} />
       <silkscreentext text="BARREL 12-24V" fontSize="0.8mm" pcbX={-49} pcbY={10.5} />

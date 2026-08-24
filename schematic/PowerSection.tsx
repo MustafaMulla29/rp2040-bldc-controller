@@ -1,11 +1,11 @@
-import { INA240A1PWR } from "../imports/INA240A1PWR"
-import { A_0451005_MRL } from "../imports/A_0451005_MRL"
-import { Fragment } from "react"
-import { LMR16020PDDAR } from "../imports/LMR16020PDDAR"
-import { RVT1H101M0607 } from "../imports/RVT1H101M0607"
-import { SMBJ30A } from "../imports/SMBJ30A"
-import { SS36 } from "../imports/SS36"
-import { SWPA6045S150MT } from "../imports/SWPA6045S150MT"
+import { INA240A1PWR } from "../imports/INA240A1PWR";
+import { A_0451005_MRL } from "../imports/A_0451005_MRL";
+import { Fragment } from "react";
+import { LMR16020PDDAR } from "../imports/LMR16020PDDAR";
+import { RVT1H101M0607 } from "../imports/RVT1H101M0607";
+import { SMBJ30A } from "../imports/SMBJ30A";
+import { SS36 } from "../imports/SS36";
+import { SWPA6045S150MT } from "../imports/SWPA6045S150MT";
 import {
   groundTrace,
   highCurrentTrace,
@@ -15,7 +15,7 @@ import {
   sections,
   senseTrace,
   sheets,
-} from "./config"
+} from "./config";
 
 export const PowerSection = () => (
   <>
@@ -35,7 +35,7 @@ export const PowerSection = () => (
       manufacturerPartNumber="RLP25FEGMR005"
       supplierPartNumbers={{ jlcpcb: ["C393074"] }}
       pcbX={-5}
-      pcbY={31}
+      pcbY={34.5}
       schX={-7}
       schY={-1}
       schSheetName={sheets.power}
@@ -43,8 +43,8 @@ export const PowerSection = () => (
     />
     <SMBJ30A
       name="D_TVS"
-      pcbX={0}
-      pcbY={29}
+      pcbX={2}
+      pcbY={34}
       pcbRotation={90}
       schRotation={270}
       schX={-2}
@@ -54,8 +54,8 @@ export const PowerSection = () => (
     />
     <RVT1H101M0607
       name="C_VM_BULK1"
-      pcbX={7}
-      pcbY={27}
+      pcbX={9}
+      pcbY={34.5}
       schRotation={270}
       schX={0.5}
       schY={2}
@@ -64,8 +64,8 @@ export const PowerSection = () => (
     />
     <RVT1H101M0607
       name="C_VM_BULK2"
-      pcbX={15}
-      pcbY={30}
+      pcbX={19}
+      pcbY={34.5}
       schRotation={270}
       schX={3}
       schY={2}
@@ -76,8 +76,8 @@ export const PowerSection = () => (
       name="C_VM_HF"
       capacitance="1uF"
       footprint="1206"
-      pcbX={22}
-      pcbY={27}
+      pcbX={23.5}
+      pcbY={29.5}
       schRotation={270}
       schX={5.5}
       schY={2}
@@ -186,7 +186,7 @@ export const PowerSection = () => (
       name="C_5V_BULK"
       capacitance="47uF"
       footprint="1210"
-      pcbX={-11}
+      pcbX={-10.6}
       pcbY={16}
       schRotation={270}
       schX={10}
@@ -198,7 +198,7 @@ export const PowerSection = () => (
       name="C_5V_HF"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-12}
+      pcbX={-11.6}
       pcbY={12}
       schRotation={270}
       schX={12}
@@ -275,20 +275,10 @@ export const PowerSection = () => (
       schDisplayLabel="VM"
       {...highCurrentTrace}
     />
-    <trace
-      name="TVS_VM"
-      from=".D_TVS > .C"
-      to="net.VM"
-      {...highCurrentTrace}
-    />
-    <trace
-      name="TVS_GND"
-      from=".D_TVS > .A"
-      to="net.GND"
-      {...groundTrace}
-    />
+    <trace name="TVS_VM" from=".D_TVS > .C" to="net.VM" {...highCurrentTrace} />
+    <trace name="TVS_GND" from=".D_TVS > .A" to="net.GND" {...groundTrace} />
     {["C_VM_BULK1", "C_VM_BULK2", "C_VM_HF"].map((name) => {
-      const capacitorTrace = name === "C_VM_HF" ? powerTrace : motorTrace
+      const capacitorTrace = name === "C_VM_HF" ? powerTrace : motorTrace;
 
       return (
         <Fragment key={name}>
@@ -305,7 +295,7 @@ export const PowerSection = () => (
             {...groundTrace}
           />
         </Fragment>
-      )
+      );
     })}
 
     <trace
@@ -503,4 +493,4 @@ export const PowerSection = () => (
       </Fragment>
     ))}
   </>
-)
+);

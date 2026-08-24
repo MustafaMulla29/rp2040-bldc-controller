@@ -53,10 +53,10 @@ const phaseConfig: Array<{
   {
     phase: "A",
     motorLabel: "U",
-    pcbX: 22,
+    pcbX: 49,
     schX: 3.8,
-    senseSchXPos: -5.9,
-    senseSchXNeg: -1.5,
+    senseSchXPos: 2.2,
+    senseSchXNeg: 4.4,
     connectorPin: "pin1",
     highGate: "GHA",
     switchNode: "SHA",
@@ -70,9 +70,9 @@ const phaseConfig: Array<{
     phase: "B",
     motorLabel: "V",
     pcbX: 35.5,
-    schX: 8.7,
-    senseSchXPos: 3,
-    senseSchXNeg: 6.65,
+    schX: 8.2,
+    senseSchXPos: 6.6,
+    senseSchXNeg: 8.8,
     connectorPin: "pin2",
     highGate: "GHB",
     switchNode: "SHB",
@@ -85,10 +85,10 @@ const phaseConfig: Array<{
   {
     phase: "C",
     motorLabel: "W",
-    pcbX: 49,
-    schX: 13.2,
-    senseSchXPos: 11.15,
-    senseSchXNeg: 15.4,
+    pcbX: 22,
+    schX: 12.5,
+    senseSchXPos: 10,
+    senseSchXNeg: 12,
     connectorPin: "pin3",
     highGate: "GHC",
     switchNode: "SHC",
@@ -126,7 +126,7 @@ const PowerStagePhase = ({
   const switchLink = `R_SH${phase}_LINK`
   const sensePosLink = `R_CS${phase}_P_LINK`
   const senseNegLink = `R_CS${phase}_N_LINK`
-  const phaseNet = `net.${motorLabel}`
+  const phaseNet = `net.PHASE_${motorLabel}`
   const sourceNet = `net.LS_${phase}`
   const phaseLocalGateTrace = logicTrace
   const phaseHighGateDriveTrace = logicTrace
@@ -210,7 +210,7 @@ const PowerStagePhase = ({
         pcbRotation={90}
         schRotation={270}
         schX={schX}
-        schY={-7}
+        schY={-5.8}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -225,7 +225,7 @@ const PowerStagePhase = ({
         pcbRotation={90}
         schRotation={270}
         schX={schX}
-        schY={-9}
+        schY={-7.7}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -237,7 +237,7 @@ const PowerStagePhase = ({
         pcbY={15}
         pcbRotation={90}
         schRotation={270}
-        schX={schX + 2.6}
+        schX={schX + 1.8}
         schY={4}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
@@ -248,7 +248,7 @@ const PowerStagePhase = ({
         footprint="0402"
         {...senseLinkPlacement.positive}
         schX={senseSchXPos}
-        schY={-12.5}
+        schY={-9.7}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -258,7 +258,7 @@ const PowerStagePhase = ({
         footprint="0402"
         {...senseLinkPlacement.negative}
         schX={senseSchXNeg}
-        schY={-12.5}
+        schY={-9.7}
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
@@ -306,6 +306,7 @@ const PowerStagePhase = ({
         name={`${phase}_HIGH_GATE_DRIVE`}
         from={`.U_GATE > .${highGate}`}
         to={`.${gateHigh} > .pin1`}
+        schDisplayLabel={`${highGate}_DRV`}
         {...phaseHighGateDriveTrace}
       />
       <trace
@@ -330,6 +331,7 @@ const PowerStagePhase = ({
         name={`${phase}_LOW_GATE_DRIVE`}
         from={`.U_GATE > .${lowGate}`}
         to={`.${gateLow} > .pin1`}
+        schDisplayLabel={`${lowGate}_DRV`}
         {...phaseLowGateDriveTrace}
       />
       <trace
@@ -360,6 +362,7 @@ const PowerStagePhase = ({
         name={`${phase}_SWITCH_NODE_DRIVER`}
         from={`.${switchLink} > .pin2`}
         to={`.U_GATE > .${switchNode}`}
+        schDisplayLabel={`${switchNode}_SENSE`}
         {...phaseSwitchTrace}
       />
       <trace
@@ -392,6 +395,7 @@ const PowerStagePhase = ({
         name={`${phase}_SHUNT_SENSE_POS_DRIVER`}
         from={`.${sensePosLink} > .pin2`}
         to={`.U_GATE > .${sensePos}`}
+        schDisplayLabel={`CS${phase}_P`}
         {...senseTrace}
       />
       <trace
@@ -404,6 +408,7 @@ const PowerStagePhase = ({
         name={`${phase}_SHUNT_SENSE_NEG_DRIVER`}
         from={`.${senseNegLink} > .pin2`}
         to={`.U_GATE > .${senseNeg}`}
+        schDisplayLabel={`CS${phase}_N`}
         {...senseTrace}
       />
       <trace
@@ -423,8 +428,8 @@ export const PowerStageSection = () => (
       pcbX={35.5}
       pcbY={34}
       pcbRotation={180}
-      schX={9}
-      schY={9}
+      schX={14.2}
+      schY={8.2}
       schWidth={1.2}
       schHeight={2}
       schPinArrangement={{ leftSide: [1, 2, 3] }}

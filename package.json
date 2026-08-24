@@ -18,11 +18,11 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "tscircuit": "0.0.2379",
+    "tscircuit": "0.0.2393",
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@tscircuit/common": "^0.0.59"
+    "@tscircuit/common": "^0.0.63"
   },
   "author": "MustafaMulla29"
 }

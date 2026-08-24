@@ -43,7 +43,7 @@ export const EncoderSection = () => (
           name={`R_ENC_${name}_BOT`}
           resistance="18k"
           footprint="0603"
-          pcbX={-43}
+          pcbX={-41}
           pcbY={-24 - index * 5}
           schRotation={270}
           schX={-5}
@@ -55,7 +55,7 @@ export const EncoderSection = () => (
           name={`C_ENC_${name}`}
           capacitance="1nF"
           footprint="0603"
-          pcbX={-39}
+          pcbX={-35}
           pcbY={-24 - index * 5}
           schRotation={270}
           schX={-2}

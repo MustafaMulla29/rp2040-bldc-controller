@@ -160,7 +160,7 @@ export const UsbPdPowerSection = () => (
       name="J_PD"
       noConnect={["pin22", "pin23", "pin24", "pin25", "pin26", "pin28"]}
       pcbX={-42}
-      pcbY={36.2}
+      pcbY={35.2}
       pcbRotation={180}
       schX={-10}
       schY={6.3}
@@ -187,7 +187,7 @@ export const UsbPdPowerSection = () => (
         "ALERT",
       ]}
       pcbX={-39}
-      pcbY={28}
+      pcbY={25.5}
       pcbRotation={180}
       schX={0}
       schY={5.3}
@@ -205,7 +205,7 @@ export const UsbPdPowerSection = () => (
     <ESDA25P35_1U1M
       name="D_PD_CC1"
       pcbX={-37.8}
-      pcbY={32}
+      pcbY={31.3}
       pcbRotation={90}
       schRotation={270}
       schX={-5.5}
@@ -216,7 +216,7 @@ export const UsbPdPowerSection = () => (
     <ESDA25P35_1U1M
       name="D_PD_CC2"
       pcbX={-39.5}
-      pcbY={32}
+      pcbY={31.3}
       pcbRotation={90}
       schRotation={270}
       schX={-3}
@@ -241,7 +241,7 @@ export const UsbPdPowerSection = () => (
       footprint="0603"
       maxDecouplingTraceLength="3mm"
       pcbX={-34.5}
-      pcbY={30.1}
+      pcbY={27.6}
       schRotation={270}
       schX={7}
       schY={8}
@@ -254,7 +254,7 @@ export const UsbPdPowerSection = () => (
       footprint="0402"
       maxDecouplingTraceLength="3mm"
       pcbX={-34.8}
-      pcbY={26.3}
+      pcbY={23.8}
       schRotation={270}
       schX={3}
       schY={8.5}
@@ -267,7 +267,7 @@ export const UsbPdPowerSection = () => (
       footprint="0402"
       maxDecouplingTraceLength="3mm"
       pcbX={-35.2}
-      pcbY={25.1}
+      pcbY={22.6}
       schRotation={270}
       schX={-2}
       schY={8.5}
@@ -280,7 +280,7 @@ export const UsbPdPowerSection = () => (
       footprint="0402"
       maxDecouplingTraceLength="3mm"
       pcbX={-34.8}
-      pcbY={28.6}
+      pcbY={26.1}
       schRotation={270}
       schX={0.5}
       schY={8.5}
@@ -292,7 +292,7 @@ export const UsbPdPowerSection = () => (
       resistance="10"
       footprint="0402"
       pcbX={-33.8}
-      pcbY={27.4}
+      pcbY={24.9}
       pcbRotation={180}
       schX={3}
       schY={10}
@@ -304,7 +304,7 @@ export const UsbPdPowerSection = () => (
       resistance="22"
       footprint="0402"
       pcbX={-43.5}
-      pcbY={29.25}
+      pcbY={26.75}
       pcbRotation={180}
       schX={-1}
       schY={1.5}
@@ -316,7 +316,7 @@ export const UsbPdPowerSection = () => (
       resistance="22"
       footprint="0402"
       pcbX={-43.5}
-      pcbY={28.25}
+      pcbY={25.75}
       pcbRotation={180}
       schX={2}
       schY={1.5}
@@ -328,7 +328,7 @@ export const UsbPdPowerSection = () => (
       resistance="10k"
       footprint="0402"
       pcbX={-42.8}
-      pcbY={30.5}
+      pcbY={28}
       pcbRotation={180}
       schRotation={270}
       schX={-7}
@@ -351,7 +351,7 @@ export const UsbPdPowerSection = () => (
       resistance="470"
       footprint="0603"
       pcbX={-30.2}
-      pcbY={30.1}
+      pcbY={27.6}
       pcbRotation={0}
       schX={7}
       schY={2}
@@ -403,7 +403,7 @@ export const UsbPdPowerSection = () => (
       resistance="22k"
       footprint="0603"
       pcbX={-27.5}
-      pcbY={29.2}
+      pcbY={26.7}
       pcbRotation={90}
       schX={10}
       schY={4}
@@ -414,8 +414,8 @@ export const UsbPdPowerSection = () => (
       name="R_PD_GATE_PULLUP"
       resistance="100k"
       footprint="0603"
-      pcbX={-27.5}
-      pcbY={26}
+      pcbX={-25.5}
+      pcbY={23.5}
       schRotation={270}
       schX={11.8}
       schY={9}
@@ -426,8 +426,8 @@ export const UsbPdPowerSection = () => (
       name="C_PD_GATE"
       capacitance="100nF"
       footprint="0603"
-      pcbX={-25}
-      pcbY={28}
+      pcbX={-22.5}
+      pcbY={25.5}
       schRotation={270}
       schX={14.3}
       schY={9}
@@ -458,7 +458,7 @@ export const UsbPdPowerSection = () => (
       id="BARREL"
       inputNet="net.BARREL_RAW"
       pcbX={-40}
-      pcbY={6}
+      pcbY={1}
       schX={-5}
       schY={-7}
     />

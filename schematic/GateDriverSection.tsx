@@ -26,7 +26,7 @@ export const GateDriverSection = () => (
       pcbX={35.5}
       pcbY={-20}
       pcbRotation={90}
-      schX={-8.4}
+      schX={-8}
       schY={0}
       schWidth={5.2}
       schHeight={5.8}
@@ -59,7 +59,7 @@ export const GateDriverSection = () => (
       pcbX={28.5}
       pcbY={-28.5}
       schX={-12}
-      schY={7.5}
+      schY={6.5}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
@@ -71,7 +71,7 @@ export const GateDriverSection = () => (
       pcbY={-29}
       schRotation={270}
       schX={-9}
-      schY={7.5}
+      schY={6.5}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
@@ -83,7 +83,7 @@ export const GateDriverSection = () => (
       pcbY={-30}
       schRotation={270}
       schX={-6}
-      schY={7.5}
+      schY={6.5}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
@@ -109,7 +109,7 @@ export const GateDriverSection = () => (
       pcbRotation={270}
       schOrientation="vertical"
       schX={-8}
-      schY={6.5}
+      schY={5.7}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
@@ -122,7 +122,7 @@ export const GateDriverSection = () => (
       pcbRotation={270}
       schOrientation="vertical"
       schX={-4}
-      schY={6.5}
+      schY={5.7}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
     />
@@ -133,7 +133,7 @@ export const GateDriverSection = () => (
       pcbX={23}
       pcbY={-11}
       schRotation={270}
-      schX={-13.9}
+      schX={-12.5}
       schY={-3.2}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
@@ -145,7 +145,7 @@ export const GateDriverSection = () => (
       pcbX={30.3}
       pcbY={-17.5}
       schRotation={270}
-      schX={-13.25}
+      schX={-12.5}
       schY={-1}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
@@ -157,7 +157,7 @@ export const GateDriverSection = () => (
       pcbX={24.5}
       pcbY={-14.5}
       schRotation={270}
-      schX={-13.25}
+      schX={-12.5}
       schY={-5.2}
       schSheetName={sheets.motor}
       schSectionName={sections.gateDriver}
