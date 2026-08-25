@@ -53,7 +53,7 @@ const phaseConfig: Array<{
   {
     phase: "A",
     motorLabel: "U",
-    pcbX: 49,
+    pcbX: 45,
     schX: 3.8,
     senseSchXPos: 2.2,
     senseSchXNeg: 4.4,
@@ -69,7 +69,7 @@ const phaseConfig: Array<{
   {
     phase: "B",
     motorLabel: "V",
-    pcbX: 35.5,
+    pcbX: 33,
     schX: 8.2,
     senseSchXPos: 6.6,
     senseSchXNeg: 8.8,
@@ -85,10 +85,10 @@ const phaseConfig: Array<{
   {
     phase: "C",
     motorLabel: "W",
-    pcbX: 22,
+    pcbX: 21,
     schX: 12.5,
-    senseSchXPos: 10,
-    senseSchXNeg: 12,
+    senseSchXPos: 10.6,
+    senseSchXNeg: 12.6,
     connectorPin: "pin3",
     highGate: "GHC",
     switchNode: "SHC",
@@ -425,8 +425,8 @@ export const PowerStageSection = () => (
   <>
     <WJ500V_5_08_03P_14_00A
       name="J_MOTOR"
-      pcbX={35.5}
-      pcbY={34}
+      pcbX={33}
+      pcbY={33}
       pcbRotation={180}
       schX={14.2}
       schY={8.2}

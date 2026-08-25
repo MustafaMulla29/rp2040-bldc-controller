@@ -104,7 +104,7 @@ export const GateDriverSection = () => (
       name="C_CP"
       capacitance="47nF"
       footprint="0603"
-      pcbX={41}
+      pcbX={42.5}
       pcbY={-22}
       pcbRotation={270}
       schOrientation="vertical"
@@ -179,7 +179,7 @@ export const GateDriverSection = () => (
       name="R_IDRIVE"
       resistance="75k"
       footprint="0603"
-      pcbX={30.35}
+      pcbX={28}
       pcbY={-20.75}
       pcbRotation={180}
       schRotation={270}
@@ -234,8 +234,8 @@ export const GateDriverSection = () => (
       capacitance="1uF"
       footprint="0402"
       maxDecouplingTraceLength="5.5mm"
-      pcbX={30.91}
-      pcbY={-19.1}
+      pcbX={30.8}
+      pcbY={-19.25}
       pcbRotation={180}
       schRotation={270}
       schX={-2}

@@ -160,7 +160,7 @@ export const UsbPdPowerSection = () => (
       name="J_PD"
       noConnect={["pin22", "pin23", "pin24", "pin25", "pin26", "pin28"]}
       pcbX={-42}
-      pcbY={35.2}
+      pcbY={34.2}
       pcbRotation={180}
       schX={-10}
       schY={6.3}
@@ -187,7 +187,7 @@ export const UsbPdPowerSection = () => (
         "ALERT",
       ]}
       pcbX={-39}
-      pcbY={25.5}
+      pcbY={24.5}
       pcbRotation={180}
       schX={0}
       schY={5.3}
@@ -205,7 +205,7 @@ export const UsbPdPowerSection = () => (
     <ESDA25P35_1U1M
       name="D_PD_CC1"
       pcbX={-37.8}
-      pcbY={31.1}
+      pcbY={30.1}
       pcbRotation={90}
       schRotation={270}
       schX={-5.5}
@@ -216,7 +216,7 @@ export const UsbPdPowerSection = () => (
     <ESDA25P35_1U1M
       name="D_PD_CC2"
       pcbX={-39.5}
-      pcbY={31.1}
+      pcbY={30.1}
       pcbRotation={90}
       schRotation={270}
       schX={-3}
@@ -227,7 +227,7 @@ export const UsbPdPowerSection = () => (
     <ESDA25P35_1U1M
       name="D_PD_VBUS"
       pcbX={-45.5}
-      pcbY={26.5}
+      pcbY={25.5}
       pcbRotation={90}
       schRotation={270}
       schX={10}
@@ -241,7 +241,7 @@ export const UsbPdPowerSection = () => (
       footprint="0603"
       maxDecouplingTraceLength="3mm"
       pcbX={-34.5}
-      pcbY={27.6}
+      pcbY={26.6}
       schRotation={270}
       schX={7}
       schY={8}
@@ -254,7 +254,7 @@ export const UsbPdPowerSection = () => (
       footprint="0402"
       maxDecouplingTraceLength="3mm"
       pcbX={-34.8}
-      pcbY={23.8}
+      pcbY={22.8}
       schRotation={270}
       schX={3}
       schY={8.5}
@@ -266,11 +266,11 @@ export const UsbPdPowerSection = () => (
       capacitance="1uF"
       footprint="0402"
       maxDecouplingTraceLength="3mm"
-      pcbX={-35.2}
-      pcbY={22.6}
+      pcbX={-34.2}
+      pcbY={24}
       schRotation={270}
       schX={-2}
-      schY={8.5}
+      schY={9.5}
       schSheetName={sheets.powerInput}
       schSectionName={sections.usbPd}
     />
@@ -279,11 +279,11 @@ export const UsbPdPowerSection = () => (
       capacitance="1uF"
       footprint="0402"
       maxDecouplingTraceLength="3mm"
-      pcbX={-34.8}
-      pcbY={26.1}
+      pcbX={-34.2}
+      pcbY={25.1}
       schRotation={270}
       schX={0.5}
-      schY={8.5}
+      schY={9.5}
       schSheetName={sheets.powerInput}
       schSectionName={sections.usbPd}
     />
@@ -291,8 +291,8 @@ export const UsbPdPowerSection = () => (
       name="R_PD_VSYS_FILTER"
       resistance="10"
       footprint="0402"
-      pcbX={-33.8}
-      pcbY={24.9}
+      pcbX={-35.5}
+      pcbY={20.5}
       pcbRotation={180}
       schX={3}
       schY={10}
@@ -304,7 +304,7 @@ export const UsbPdPowerSection = () => (
       resistance="22"
       footprint="0402"
       pcbX={-43.5}
-      pcbY={26.75}
+      pcbY={25.75}
       pcbRotation={180}
       schX={-1}
       schY={1.5}
@@ -316,7 +316,7 @@ export const UsbPdPowerSection = () => (
       resistance="22"
       footprint="0402"
       pcbX={-43.5}
-      pcbY={25.75}
+      pcbY={24.75}
       pcbRotation={180}
       schX={2}
       schY={1.5}
@@ -328,7 +328,7 @@ export const UsbPdPowerSection = () => (
       resistance="10k"
       footprint="0402"
       pcbX={-42.8}
-      pcbY={28}
+      pcbY={27}
       pcbRotation={180}
       schRotation={270}
       schX={-7}
@@ -340,7 +340,7 @@ export const UsbPdPowerSection = () => (
     <B5819W_SL
       name="D_PD_SENSE"
       pcbX={-29.5}
-      pcbY={24.5}
+      pcbY={23.5}
       schX={7}
       schY={3}
       schSheetName={sheets.powerInput}
@@ -351,7 +351,7 @@ export const UsbPdPowerSection = () => (
       resistance="470"
       footprint="0603"
       pcbX={-30.2}
-      pcbY={27.6}
+      pcbY={26.6}
       pcbRotation={0}
       schX={7}
       schY={2}
@@ -362,8 +362,8 @@ export const UsbPdPowerSection = () => (
       name="R_PD_SENSE_LIMIT"
       resistance="1k"
       footprint="0603"
-      pcbX={-32}
-      pcbY={22.5}
+      pcbX={-31}
+      pcbY={21.5}
       schX={10}
       schY={2}
       schSheetName={sheets.powerInput}
@@ -373,8 +373,8 @@ export const UsbPdPowerSection = () => (
       name="C_PD_SENSE"
       capacitance="1uF"
       footprint="0603"
-      pcbX={-29}
-      pcbY={22.5}
+      pcbX={-27.8}
+      pcbY={21.5}
       schRotation={270}
       schX={8.5}
       schY={0}
@@ -385,7 +385,7 @@ export const UsbPdPowerSection = () => (
     <A_30P06
       name="Q_PD_SWITCH"
       pcbX={-31.7}
-      pcbY={34.4}
+      pcbY={33.4}
       pcbRotation={180}
       schX={12.8}
       schY={6}
@@ -403,7 +403,7 @@ export const UsbPdPowerSection = () => (
       resistance="22k"
       footprint="0603"
       pcbX={-27.5}
-      pcbY={26.7}
+      pcbY={25.7}
       pcbRotation={90}
       schX={10}
       schY={4}
@@ -414,8 +414,8 @@ export const UsbPdPowerSection = () => (
       name="R_PD_GATE_PULLUP"
       resistance="100k"
       footprint="0603"
-      pcbX={-25.5}
-      pcbY={23.5}
+      pcbX={-24.5}
+      pcbY={21.9}
       schRotation={270}
       schX={11.8}
       schY={9}
@@ -427,7 +427,7 @@ export const UsbPdPowerSection = () => (
       capacitance="100nF"
       footprint="0603"
       pcbX={-22.5}
-      pcbY={25.5}
+      pcbY={24.5}
       schRotation={270}
       schX={14.3}
       schY={9}
@@ -438,7 +438,7 @@ export const UsbPdPowerSection = () => (
     <DC_012A_5A_2_0
       name="J_BARREL"
       noConnect={["SWITCH"]}
-      pcbX={-50}
+      pcbX={-46.5}
       pcbY={6}
       schX={-12}
       schY={-7}
@@ -450,15 +450,15 @@ export const UsbPdPowerSection = () => (
       id="PD"
       inputNet="net.PD_CONTRACT"
       pcbX={-22.7}
-      pcbY={32}
+      pcbY={31}
       schX={-5}
       schY={-3}
     />
     <IdealDiodePath
       id="BARREL"
       inputNet="net.BARREL_RAW"
-      pcbX={-40}
-      pcbY={1}
+      pcbX={-37.2}
+      pcbY={7}
       schX={-5}
       schY={-7}
     />
@@ -467,7 +467,7 @@ export const UsbPdPowerSection = () => (
       capacitance="1uF"
       footprint="1206"
       pcbX={-16}
-      pcbY={24}
+      pcbY={23}
       schRotation={270}
       schX={3}
       schY={-5}

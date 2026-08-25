@@ -22,7 +22,7 @@ export const PowerSection = () => (
     <A_0451005_MRL
       name="F_INPUT"
       pcbX={-13}
-      pcbY={28}
+      pcbY={27}
       schX={-10}
       schY={4}
       schSheetName={sheets.power}
@@ -35,7 +35,7 @@ export const PowerSection = () => (
       manufacturerPartNumber="RLP25FEGMR005"
       supplierPartNumbers={{ jlcpcb: ["C393074"] }}
       pcbX={-4.8}
-      pcbY={34.5}
+      pcbY={33.5}
       schX={-7}
       schY={-1}
       schSheetName={sheets.power}
@@ -44,7 +44,7 @@ export const PowerSection = () => (
     <SMBJ30A
       name="D_TVS"
       pcbX={2}
-      pcbY={34}
+      pcbY={33}
       pcbRotation={90}
       schRotation={270}
       schX={-2}
@@ -55,7 +55,7 @@ export const PowerSection = () => (
     <RVT1H101M0607
       name="C_VM_BULK1"
       pcbX={9}
-      pcbY={34.5}
+      pcbY={33.5}
       schRotation={270}
       schX={0.5}
       schY={2}
@@ -65,7 +65,7 @@ export const PowerSection = () => (
     <RVT1H101M0607
       name="C_VM_BULK2"
       pcbX={19}
-      pcbY={34.5}
+      pcbY={33.5}
       schRotation={270}
       schX={3}
       schY={2}
@@ -76,8 +76,8 @@ export const PowerSection = () => (
       name="C_VM_HF"
       capacitance="1uF"
       footprint="1206"
-      pcbX={23.5}
-      pcbY={29.5}
+      pcbX={22}
+      pcbY={28.5}
       schRotation={270}
       schX={5.5}
       schY={2}
@@ -107,11 +107,11 @@ export const PowerSection = () => (
       footprint="0402"
       maxDecouplingTraceLength="2.5mm"
       pcbX={11.015}
-      pcbY={23.5}
+      pcbY={23.8}
       pcbRotation={0}
       schRotation={270}
-      schX={-5}
-      schY={-6}
+      schX={-4}
+      schY={-7}
       schSheetName={sheets.power}
       schSectionName={sections.busSense}
     />

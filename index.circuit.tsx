@@ -10,8 +10,8 @@ import { UsbPdPowerSection } from "./schematic/UsbPdPowerSection";
 export default function Rp2040BldcController() {
   return (
     <board
-      width="109mm"
-      height="78mm"
+      width="105mm"
+      height="76mm"
       minViaHoleDiameter="0.3mm"
       minViaPadDiameter="0.45mm"
       layers={2}
@@ -68,28 +68,28 @@ export default function Rp2040BldcController() {
         coveredWithSolderMask
       />
 
-      <hole diameter="3.2mm" pcbX={-50.5} pcbY={35} />
-      <hole diameter="3.2mm" pcbX={50.5} pcbY={35} />
-      <hole diameter="3.2mm" pcbX={-50.5} pcbY={-35} />
-      <hole diameter="3.2mm" pcbX={50.5} pcbY={-35} />
+      <hole diameter="3.2mm" pcbX={-49} pcbY={34} />
+      <hole diameter="3.2mm" pcbX={49} pcbY={34} />
+      <hole diameter="3.2mm" pcbX={-49} pcbY={-34} />
+      <hole diameter="3.2mm" pcbX={49} pcbY={-34} />
 
       <silkscreentext
         text="RP2040 BLDC CONTROLLER"
         fontSize="1.5mm"
         pcbX={0}
-        pcbY={37}
+        pcbY={36}
       />
       <silkscreentext
         text="12-24V / REV A PROTOTYPE"
         fontSize="0.8mm"
         pcbX={34}
-        pcbY={37.5}
+        pcbY={36.5}
       />
-      <silkscreentext text="USB-C PD 12V" fontSize="0.8mm" pcbX={-29} pcbY={37.5} />
-      <silkscreentext text="BARREL 12-24V" fontSize="0.8mm" pcbX={-49} pcbY={10.5} />
-      <silkscreentext text="HALL" fontSize="0.9mm" pcbX={-48} pcbY={-16} />
-      <silkscreentext text="ENCODER" fontSize="0.9mm" pcbX={-47} pcbY={-35} />
-      <silkscreentext text="ONE MOTOR: U V W" fontSize="1mm" pcbX={35.5} pcbY={27} />
+      <silkscreentext text="USB-C PD 12V" fontSize="0.8mm" pcbX={-29} pcbY={36.5} />
+      <silkscreentext text="BARREL 12-24V" fontSize="0.8mm" pcbX={-45.5} pcbY={10.5} />
+      <silkscreentext text="HALL" fontSize="0.9mm" pcbX={-44} pcbY={-15} />
+      <silkscreentext text="ENCODER" fontSize="0.9mm" pcbX={-43} pcbY={-34} />
+      <silkscreentext text="ONE MOTOR: U V W" fontSize="1mm" pcbX={33} pcbY={27} />
     </board>
   );
 }

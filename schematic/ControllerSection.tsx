@@ -40,7 +40,7 @@ export const ControllerSection = () => (
       schAutoLayoutEnabled
       schSheetName={sheets.controller}
       pcbX={0}
-      pcbY={-4.25}
+      pcbY={-3.25}
       pcbRotation={180}
       schX={-4}
       schY={8}
@@ -54,8 +54,8 @@ export const ControllerSection = () => (
       pitch="2.54mm"
       pinLabels={["HALL_5V", "GND", "HALL_A", "HALL_B", "HALL_C"]}
       showSilkscreenPinLabels
-      pcbX={-51}
-      pcbY={-8}
+      pcbX={-47}
+      pcbY={-7}
       pcbRotation={90}
       schX={7}
       schY={0}
@@ -70,8 +70,8 @@ export const ControllerSection = () => (
           name={`R_HALL_${name}_TOP`}
           resistance="10k"
           footprint="0603"
-          pcbX={-47}
-          pcbY={-5 - index * 5}
+          pcbX={-43}
+          pcbY={-5 - index * 4}
           schX={-10}
           schY={schY}
           schSheetName={sheets.hall}
@@ -81,8 +81,8 @@ export const ControllerSection = () => (
           name={`R_HALL_${name}_BOT`}
           resistance="18k"
           footprint="0603"
-          pcbX={-41}
-          pcbY={-5 - index * 5}
+          pcbX={-38}
+          pcbY={-5 - index * 4}
           schRotation={270}
           schX={-5}
           schY={schY - 1}
@@ -93,8 +93,8 @@ export const ControllerSection = () => (
           name={`C_HALL_${name}`}
           capacitance="1nF"
           footprint="0603"
-          pcbX={-35}
-          pcbY={-5 - index * 5}
+          pcbX={-33}
+          pcbY={-5 - index * 4}
           schRotation={270}
           schX={-2}
           schY={schY - 1}

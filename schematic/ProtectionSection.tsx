@@ -6,7 +6,7 @@ export const ProtectionSection = () => (
   <>
     <TMP102AIDRLR
       name="U_TEMP"
-      pcbX={51}
+      pcbX={48}
       pcbY={-18}
       schX={2}
       schY={0}
@@ -24,7 +24,7 @@ export const ProtectionSection = () => (
       capacitance="100nF"
       footprint="0402"
       maxDecouplingTraceLength="2mm"
-      pcbX={51}
+      pcbX={48}
       pcbY={-19.8}
       pcbRotation={0}
       schRotation={270}
@@ -37,7 +37,7 @@ export const ProtectionSection = () => (
       name="R_TEMP_SCL"
       resistance="4.7k"
       footprint="0603"
-      pcbX={16}
+      pcbX={13}
       pcbY={-14}
       pcbRotation={90}
       schRotation={270}
@@ -50,7 +50,7 @@ export const ProtectionSection = () => (
       name="R_TEMP_SDA"
       resistance="4.7k"
       footprint="0603"
-      pcbX={16}
+      pcbX={13}
       pcbY={-18}
       pcbRotation={90}
       schRotation={270}
@@ -63,7 +63,7 @@ export const ProtectionSection = () => (
       name="R_TEMP_ALERT"
       resistance="10k"
       footprint="0603"
-      pcbX={16}
+      pcbX={13}
       pcbY={-22}
       pcbRotation={90}
       schRotation={270}
