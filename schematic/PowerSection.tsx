@@ -34,7 +34,7 @@ export const PowerSection = () => (
       footprint="2512"
       manufacturerPartNumber="RLP25FEGMR005"
       supplierPartNumbers={{ jlcpcb: ["C393074"] }}
-      pcbX={-5}
+      pcbX={-4.8}
       pcbY={34.5}
       schX={-7}
       schY={-1}

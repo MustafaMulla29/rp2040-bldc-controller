@@ -1,12 +1,12 @@
-import { B5819W_SL } from "../imports/B5819W_SL"
-import { A_30P06 } from "../imports/A_30P06"
-import { DC_012A_5A_2_0 } from "../imports/DC_012A_5A_2_0"
-import { ESDA25P35_1U1M } from "../imports/ESDA25P35_1U1M"
-import { HX_TYPE_C_16PIN_5A_143 } from "../imports/HX_TYPE_C_16PIN_5A_143"
-import { LM74700QDBVRQ1 } from "../imports/LM74700QDBVRQ1"
-import { MS50N06 } from "../imports/MS50N06"
-import { STUSB4500QTR } from "../imports/STUSB4500QTR"
-import { Fragment } from "react"
+import { B5819W_SL } from "../imports/B5819W_SL";
+import { A_30P06 } from "../imports/A_30P06";
+import { DC_012A_5A_2_0 } from "../imports/DC_012A_5A_2_0";
+import { ESDA25P35_1U1M } from "../imports/ESDA25P35_1U1M";
+import { HX_TYPE_C_16PIN_5A_143 } from "../imports/HX_TYPE_C_16PIN_5A_143";
+import { LM74700QDBVRQ1 } from "../imports/LM74700QDBVRQ1";
+import { MS50N06 } from "../imports/MS50N06";
+import { STUSB4500QTR } from "../imports/STUSB4500QTR";
+import { Fragment } from "react";
 import {
   groundTrace,
   highCurrentTrace,
@@ -14,16 +14,16 @@ import {
   powerTrace,
   sections,
   sheets,
-} from "./config"
+} from "./config";
 
 type IdealDiodePathProps = {
-  id: "PD" | "BARREL"
-  inputNet: "net.PD_CONTRACT" | "net.BARREL_RAW"
-  pcbX: number
-  pcbY: number
-  schX: number
-  schY: number
-}
+  id: "PD" | "BARREL";
+  inputNet: "net.PD_CONTRACT" | "net.BARREL_RAW";
+  pcbX: number;
+  pcbY: number;
+  schX: number;
+  schY: number;
+};
 
 const IdealDiodePath = ({
   id,
@@ -152,7 +152,7 @@ const IdealDiodePath = ({
       {...groundTrace}
     />
   </>
-)
+);
 
 export const UsbPdPowerSection = () => (
   <>
@@ -205,7 +205,7 @@ export const UsbPdPowerSection = () => (
     <ESDA25P35_1U1M
       name="D_PD_CC1"
       pcbX={-37.8}
-      pcbY={31.3}
+      pcbY={31.1}
       pcbRotation={90}
       schRotation={270}
       schX={-5.5}
@@ -216,7 +216,7 @@ export const UsbPdPowerSection = () => (
     <ESDA25P35_1U1M
       name="D_PD_CC2"
       pcbX={-39.5}
-      pcbY={31.3}
+      pcbY={31.1}
       pcbRotation={90}
       schRotation={270}
       schX={-3}
@@ -506,64 +506,334 @@ export const UsbPdPowerSection = () => (
       </Fragment>
     ))}
 
-    <trace name="PD_CONNECTOR_CC1" from=".J_PD > .pin27" to="net.PD_CC1" {...logicTrace} />
-    <trace name="PD_CONNECTOR_CC2" from=".J_PD > .pin21" to="net.PD_CC2" {...logicTrace} />
-    <trace name="PD_CONTROLLER_CC1" from=".U_PD > .CC1" to="net.PD_CC1" {...logicTrace} />
-    <trace name="PD_CONTROLLER_CC2" from=".U_PD > .CC2" to="net.PD_CC2" {...logicTrace} />
-    <trace name="PD_DEAD_BATTERY_CC1" from=".U_PD > .CC1DB" to="net.PD_CC1" {...logicTrace} />
-    <trace name="PD_DEAD_BATTERY_CC2" from=".U_PD > .CC2DB" to="net.PD_CC2" {...logicTrace} />
-    <trace name="PD_CC1_ESD" from=".D_PD_CC1 > .IO" to="net.PD_CC1" {...logicTrace} />
-    <trace name="PD_CC1_ESD_GND" from=".D_PD_CC1 > .GND" to="net.GND" {...groundTrace} />
-    <trace name="PD_CC2_ESD" from=".D_PD_CC2 > .IO" to="net.PD_CC2" {...logicTrace} />
-    <trace name="PD_CC2_ESD_GND" from=".D_PD_CC2 > .GND" to="net.GND" {...groundTrace} />
-    <trace name="PD_VBUS_ESD" from=".D_PD_VBUS > .IO" to="net.PD_VBUS_RAW" {...powerTrace} />
-    <trace name="PD_VBUS_ESD_GND" from=".D_PD_VBUS > .GND" to="net.GND" {...groundTrace} />
+    <trace
+      name="PD_CONNECTOR_CC1"
+      from=".J_PD > .pin27"
+      to="net.PD_CC1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_CONNECTOR_CC2"
+      from=".J_PD > .pin21"
+      to="net.PD_CC2"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_CONTROLLER_CC1"
+      from=".U_PD > .CC1"
+      to="net.PD_CC1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_CONTROLLER_CC2"
+      from=".U_PD > .CC2"
+      to="net.PD_CC2"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_DEAD_BATTERY_CC1"
+      from=".U_PD > .CC1DB"
+      to="net.PD_CC1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_DEAD_BATTERY_CC2"
+      from=".U_PD > .CC2DB"
+      to="net.PD_CC2"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_CC1_ESD"
+      from=".D_PD_CC1 > .IO"
+      to="net.PD_CC1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_CC1_ESD_GND"
+      from=".D_PD_CC1 > .GND"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_CC2_ESD"
+      from=".D_PD_CC2 > .IO"
+      to="net.PD_CC2"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_CC2_ESD_GND"
+      from=".D_PD_CC2 > .GND"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_VBUS_ESD"
+      from=".D_PD_VBUS > .IO"
+      to="net.PD_VBUS_RAW"
+      {...powerTrace}
+    />
+    <trace
+      name="PD_VBUS_ESD_GND"
+      from=".D_PD_VBUS > .GND"
+      to="net.GND"
+      {...groundTrace}
+    />
 
-    <trace name="PD_VDD" from=".U_PD > .VDD" to="net.PD_VBUS_RAW" {...logicTrace} />
-    <trace name="PD_VDD_DECOUPLE" from=".C_PD_VDD > .pin1" to=".U_PD > .VDD" {...logicTrace} />
-    <trace name="PD_VDD_DECOUPLE_GND" from=".C_PD_VDD > .pin2" to="net.GND" {...groundTrace} />
-    <trace name="PD_VSYS_FILTER_INPUT" from="net.V3V3" to=".R_PD_VSYS_FILTER > .pin1" {...logicTrace} />
-    <trace name="PD_VSYS_FILTER_OUTPUT" from=".R_PD_VSYS_FILTER > .pin2" to="net.PD_VSYS_3V3" {...logicTrace} />
-    <trace name="PD_VSYS" from=".U_PD > .VSYS" to="net.PD_VSYS_3V3" {...logicTrace} />
-    <trace name="PD_VSYS_DECOUPLE" from=".C_PD_VSYS > .pin1" to="net.PD_VSYS_3V3" {...logicTrace} />
-    <trace name="PD_VSYS_DECOUPLE_GND" from=".C_PD_VSYS > .pin2" to="net.GND" {...groundTrace} />
-    <trace name="PD_1V2_DECOUPLE" from=".C_PD_1V2 > .pin1" to=".U_PD > .VREG_1V2" {...logicTrace} />
-    <trace name="PD_1V2_DECOUPLE_GND" from=".C_PD_1V2 > .pin2" to="net.GND" {...groundTrace} />
-    <trace name="PD_2V7_DECOUPLE" from=".C_PD_2V7 > .pin1" to=".U_PD > .VREG_2V7" {...logicTrace} />
-    <trace name="PD_2V7_DECOUPLE_GND" from=".C_PD_2V7 > .pin2" to="net.GND" {...groundTrace} />
+    <trace
+      name="PD_VDD"
+      from=".U_PD > .VDD"
+      to="net.PD_VBUS_RAW"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_VDD_DECOUPLE"
+      from=".C_PD_VDD > .pin1"
+      to=".U_PD > .VDD"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_VDD_DECOUPLE_GND"
+      from=".C_PD_VDD > .pin2"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_VSYS_FILTER_INPUT"
+      from="net.V3V3"
+      to=".R_PD_VSYS_FILTER > .pin1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_VSYS_FILTER_OUTPUT"
+      from=".R_PD_VSYS_FILTER > .pin2"
+      to="net.PD_VSYS_3V3"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_VSYS"
+      from=".U_PD > .VSYS"
+      to="net.PD_VSYS_3V3"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_VSYS_DECOUPLE"
+      from=".C_PD_VSYS > .pin1"
+      to="net.PD_VSYS_3V3"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_VSYS_DECOUPLE_GND"
+      from=".C_PD_VSYS > .pin2"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_1V2_DECOUPLE"
+      from=".C_PD_1V2 > .pin1"
+      to=".U_PD > .VREG_1V2"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_1V2_DECOUPLE_GND"
+      from=".C_PD_1V2 > .pin2"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_2V7_DECOUPLE"
+      from=".C_PD_2V7 > .pin1"
+      to=".U_PD > .VREG_2V7"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_2V7_DECOUPLE_GND"
+      from=".C_PD_2V7 > .pin2"
+      to="net.GND"
+      {...groundTrace}
+    />
     <trace name="PD_GROUND" from=".U_PD > .GND" to="net.GND" {...groundTrace} />
-    <trace name="PD_EP_GROUND" from=".U_PD > .EP" to="net.GND" {...groundTrace} />
-    <trace name="PD_RESET_PULLDOWN" from=".U_PD > .RESET" to=".R_PD_RESET > .pin1" {...logicTrace} />
-    <trace name="PD_RESET_GROUND" from=".R_PD_RESET > .pin2" to="net.GND" {...groundTrace} />
-    <trace name="PD_ADDR0" from=".U_PD > .ADDR0" to="net.GND" {...groundTrace} />
-    <trace name="PD_ADDR1" from=".U_PD > .ADDR1" to="net.GND" {...groundTrace} />
-    <trace name="PD_I2C_SCL_LOCAL" from=".U_PD > .SCL" to=".R_PD_SCL_SER > .pin1" {...logicTrace} />
-    <trace name="PD_I2C_SCL" from=".R_PD_SCL_SER > .pin2" to="net.MCU_TEMP_SCL" {...logicTrace} />
-    <trace name="PD_I2C_SDA_LOCAL" from=".U_PD > .SDA" to=".R_PD_SDA_SER > .pin1" {...logicTrace} />
-    <trace name="PD_I2C_SDA" from=".R_PD_SDA_SER > .pin2" to="net.MCU_TEMP_SDA" {...logicTrace} />
+    <trace
+      name="PD_EP_GROUND"
+      from=".U_PD > .EP"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_RESET_PULLDOWN"
+      from=".U_PD > .RESET"
+      to=".R_PD_RESET > .pin1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_RESET_GROUND"
+      from=".R_PD_RESET > .pin2"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_ADDR0"
+      from=".U_PD > .ADDR0"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_ADDR1"
+      from=".U_PD > .ADDR1"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="PD_I2C_SCL_LOCAL"
+      from=".U_PD > .SCL"
+      to=".R_PD_SCL_SER > .pin1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_I2C_SCL"
+      from=".R_PD_SCL_SER > .pin2"
+      to="net.MCU_TEMP_SCL"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_I2C_SDA_LOCAL"
+      from=".U_PD > .SDA"
+      to=".R_PD_SDA_SER > .pin1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_I2C_SDA"
+      from=".R_PD_SDA_SER > .pin2"
+      to="net.MCU_TEMP_SDA"
+      {...logicTrace}
+    />
 
-    <trace name="PD_SENSE_DIODE_INPUT" from=".D_PD_SENSE > .anode" to="net.PD_VBUS_RAW" {...logicTrace} />
-    <trace name="PD_SENSE_DIODE_OUTPUT" from=".D_PD_SENSE > .cathode" to="net.PD_VBUS_SENSE" {...logicTrace} />
-    <trace name="PD_SENSE_CHARGE_INPUT" from=".R_PD_SENSE_CHARGE > .pin1" to="net.PD_VBUS_RAW" {...logicTrace} />
-    <trace name="PD_SENSE_CHARGE_OUTPUT" from=".R_PD_SENSE_CHARGE > .pin2" to="net.PD_VBUS_SENSE" {...logicTrace} />
-    <trace name="PD_SENSE_LIMIT_INPUT" from=".R_PD_SENSE_LIMIT > .pin1" to="net.PD_VBUS_SENSE" {...logicTrace} />
-    <trace name="PD_SENSE_LIMIT_OUTPUT" from=".R_PD_SENSE_LIMIT > .pin2" to=".U_PD > .VBUS_VS_DISCH" {...logicTrace} />
-    <trace name="PD_SENSE_CAP" from=".C_PD_SENSE > .pin1" to="net.PD_VBUS_SENSE" {...logicTrace} />
-    <trace name="PD_SENSE_CAP_GND" from=".C_PD_SENSE > .pin2" to="net.GND" {...groundTrace} />
+    <trace
+      name="PD_SENSE_DIODE_INPUT"
+      from=".D_PD_SENSE > .anode"
+      to="net.PD_VBUS_RAW"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SENSE_DIODE_OUTPUT"
+      from=".D_PD_SENSE > .cathode"
+      to="net.PD_VBUS_SENSE"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SENSE_CHARGE_INPUT"
+      from=".R_PD_SENSE_CHARGE > .pin1"
+      to="net.PD_VBUS_RAW"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SENSE_CHARGE_OUTPUT"
+      from=".R_PD_SENSE_CHARGE > .pin2"
+      to="net.PD_VBUS_SENSE"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SENSE_LIMIT_INPUT"
+      from=".R_PD_SENSE_LIMIT > .pin1"
+      to="net.PD_VBUS_SENSE"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SENSE_LIMIT_OUTPUT"
+      from=".R_PD_SENSE_LIMIT > .pin2"
+      to=".U_PD > .VBUS_VS_DISCH"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SENSE_CAP"
+      from=".C_PD_SENSE > .pin1"
+      to="net.PD_VBUS_SENSE"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SENSE_CAP_GND"
+      from=".C_PD_SENSE > .pin2"
+      to="net.GND"
+      {...groundTrace}
+    />
 
-    <trace name="PD_SWITCH_SOURCE" from=".Q_PD_SWITCH > .S" to="net.PD_VBUS_RAW" {...highCurrentTrace} />
-    <trace name="PD_SWITCH_DRAIN" from=".Q_PD_SWITCH > .D" to="net.PD_CONTRACT" {...highCurrentTrace} />
-    <trace name="PD_SWITCH_GATE_FET" from=".Q_PD_SWITCH > .G" to="net.PD_SWITCH_GATE" {...logicTrace} />
-    <trace name="PD_SWITCH_GATE_DRIVE" from=".U_PD > .POWER_OK2" to=".R_PD_GATE_DRIVE > .pin1" {...logicTrace} />
-    <trace name="PD_SWITCH_GATE_DRIVE_OUT" from=".R_PD_GATE_DRIVE > .pin2" to="net.PD_SWITCH_GATE" {...logicTrace} />
-    <trace name="PD_SWITCH_GATE_PULLUP_SOURCE" from=".R_PD_GATE_PULLUP > .pin1" to="net.PD_VBUS_RAW" {...logicTrace} />
-    <trace name="PD_SWITCH_GATE_PULLUP_GATE" from=".R_PD_GATE_PULLUP > .pin2" to="net.PD_SWITCH_GATE" {...logicTrace} />
-    <trace name="PD_SWITCH_GATE_CAP_SOURCE" from=".C_PD_GATE > .pin1" to="net.PD_VBUS_RAW" {...logicTrace} />
-    <trace name="PD_SWITCH_GATE_CAP_GATE" from=".C_PD_GATE > .pin2" to="net.PD_SWITCH_GATE" {...logicTrace} />
+    <trace
+      name="PD_SWITCH_SOURCE"
+      from=".Q_PD_SWITCH > .S"
+      to="net.PD_VBUS_RAW"
+      {...highCurrentTrace}
+    />
+    <trace
+      name="PD_SWITCH_DRAIN"
+      from=".Q_PD_SWITCH > .D"
+      to="net.PD_CONTRACT"
+      {...highCurrentTrace}
+    />
+    <trace
+      name="PD_SWITCH_GATE_FET"
+      from=".Q_PD_SWITCH > .G"
+      to="net.PD_SWITCH_GATE"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SWITCH_GATE_DRIVE"
+      from=".U_PD > .POWER_OK2"
+      to=".R_PD_GATE_DRIVE > .pin1"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SWITCH_GATE_DRIVE_OUT"
+      from=".R_PD_GATE_DRIVE > .pin2"
+      to="net.PD_SWITCH_GATE"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SWITCH_GATE_PULLUP_SOURCE"
+      from=".R_PD_GATE_PULLUP > .pin1"
+      to="net.PD_VBUS_RAW"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SWITCH_GATE_PULLUP_GATE"
+      from=".R_PD_GATE_PULLUP > .pin2"
+      to="net.PD_SWITCH_GATE"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SWITCH_GATE_CAP_SOURCE"
+      from=".C_PD_GATE > .pin1"
+      to="net.PD_VBUS_RAW"
+      {...logicTrace}
+    />
+    <trace
+      name="PD_SWITCH_GATE_CAP_GATE"
+      from=".C_PD_GATE > .pin2"
+      to="net.PD_SWITCH_GATE"
+      {...logicTrace}
+    />
 
-    <trace name="BARREL_INPUT" from=".J_BARREL > .TIP" to="net.BARREL_RAW" {...highCurrentTrace} />
-    <trace name="BARREL_GROUND" from=".J_BARREL > .SLEEVE" to="net.GND" {...groundTrace} />
-    <trace name="VIN_SELECTED_BYPASS" from=".C_VIN_SELECTED > .pin1" to="net.VIN_SELECTED" {...powerTrace} />
-    <trace name="VIN_SELECTED_BYPASS_GND" from=".C_VIN_SELECTED > .pin2" to="net.GND" {...groundTrace} />
+    <trace
+      name="BARREL_INPUT"
+      from=".J_BARREL > .TIP"
+      to="net.BARREL_RAW"
+      {...highCurrentTrace}
+    />
+    <trace
+      name="BARREL_GROUND"
+      from=".J_BARREL > .SLEEVE"
+      to="net.GND"
+      {...groundTrace}
+    />
+    <trace
+      name="VIN_SELECTED_BYPASS"
+      from=".C_VIN_SELECTED > .pin1"
+      to="net.VIN_SELECTED"
+      {...powerTrace}
+    />
+    <trace
+      name="VIN_SELECTED_BYPASS_GND"
+      from=".C_VIN_SELECTED > .pin2"
+      to="net.GND"
+      {...groundTrace}
+    />
   </>
-)
+);

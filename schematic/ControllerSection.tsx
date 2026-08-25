@@ -48,6 +48,7 @@ export const ControllerSection = () => (
 
     <pinheader
       name="J_HALL"
+      doNotPlace
       pinCount={5}
       gender="male"
       pitch="2.54mm"

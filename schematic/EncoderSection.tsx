@@ -11,6 +11,7 @@ export const EncoderSection = () => (
   <>
     <pinheader
       name="J_ENCODER"
+      doNotPlace
       pinCount={5}
       gender="male"
       pitch="2.54mm"
