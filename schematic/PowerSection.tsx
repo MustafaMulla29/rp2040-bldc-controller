@@ -1,8 +1,8 @@
 import { INA240A1PWR } from "../imports/INA240A1PWR";
 import { A_0451005_MRL } from "../imports/A_0451005_MRL";
+import { EMZR500ARA101MF80G } from "../imports/EMZR500ARA101MF80G";
 import { Fragment } from "react";
 import { LMR16020PDDAR } from "../imports/LMR16020PDDAR";
-import { RVT1H101M0607 } from "../imports/RVT1H101M0607";
 import { SMBJ30A } from "../imports/SMBJ30A";
 import { SS36 } from "../imports/SS36";
 import { SWPA6045S150MT } from "../imports/SWPA6045S150MT";
@@ -52,7 +52,7 @@ export const PowerSection = () => (
       schSheetName={sheets.power}
       schSectionName={sections.inputProtection}
     />
-    <RVT1H101M0607
+    <EMZR500ARA101MF80G
       name="C_VM_BULK1"
       pcbX={9}
       pcbY={33.5}
@@ -62,7 +62,7 @@ export const PowerSection = () => (
       schSheetName={sheets.power}
       schSectionName={sections.inputProtection}
     />
-    <RVT1H101M0607
+    <EMZR500ARA101MF80G
       name="C_VM_BULK2"
       pcbX={19}
       pcbY={33.5}
@@ -185,7 +185,10 @@ export const PowerSection = () => (
     <capacitor
       name="C_5V_BULK"
       capacitance="47uF"
+      maxVoltageRating="10V"
       footprint="1210"
+      manufacturerPartNumber="GRM32ER71A476KE15L"
+      supplierPartNumbers={{ jlcpcb: ["C84494"] }}
       pcbX={-10.6}
       pcbY={16}
       schRotation={270}

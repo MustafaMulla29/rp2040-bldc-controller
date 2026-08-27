@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { CSD18540Q5B } from "../imports/CSD18540Q5B"
+import { STL130N6F7 } from "../imports/STL130N6F7"
 import { WJ500V_5_08_03P_14_00A } from "../imports/WJ500V_5_08_03P_14_00A"
 import {
   groundTrace,
@@ -14,7 +14,7 @@ import {
 type PhaseName = "A" | "B" | "C"
 
 const sourcePins = ["S1", "S2", "S3"] as const
-const drainPins = ["D1", "D3", "D4", "D5", "pin8_alt1"] as const
+const drainPins = ["D1", "D2", "D3", "D4"] as const
 
 // Keep the driver side of each Kelvin-sense link at the DRV8323. This gives
 // the adjacent 0.5 mm-pitch amplifier inputs short, parallel pad escapes; the
@@ -140,7 +140,7 @@ const PowerStagePhase = ({
 
   return (
     <>
-      <CSD18540Q5B
+      <STL130N6F7
         name={qHigh}
         pcbX={pcbX}
         pcbY={22}
@@ -152,7 +152,7 @@ const PowerStagePhase = ({
         schSheetName={sheets.motor}
         schSectionName={sections.powerStage}
       />
-      <CSD18540Q5B
+      <STL130N6F7
         name={qLow}
         pcbX={pcbX}
         pcbY={8}

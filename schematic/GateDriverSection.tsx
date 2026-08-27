@@ -167,7 +167,7 @@ export const GateDriverSection = () => (
       resistance="47k"
       footprint="0603"
       pcbX={29.5}
-      pcbY={-13.5}
+      pcbY={-13.3}
       pcbRotation={90}
       schRotation={270}
       schX={-8}
@@ -179,6 +179,8 @@ export const GateDriverSection = () => (
       name="R_IDRIVE"
       resistance="75k"
       footprint="0603"
+      manufacturerPartNumber="0603WAF7502T5E"
+      supplierPartNumbers={{ jlcpcb: ["C23242"] }}
       pcbX={28}
       pcbY={-20.75}
       pcbRotation={180}
@@ -195,6 +197,8 @@ export const GateDriverSection = () => (
       name="R_VDS"
       resistance="0"
       footprint="0603"
+      manufacturerPartNumber="0603WAF0000T5E"
+      supplierPartNumbers={{ jlcpcb: ["C21189"] }}
       pcbX={31.2}
       pcbY={-13.5}
       pcbRotation={90}
@@ -221,7 +225,7 @@ export const GateDriverSection = () => (
       resistance="10k"
       footprint="0603"
       pcbX={28}
-      pcbY={-16}
+      pcbY={-15.8}
       pcbRotation={270}
       schRotation={270}
       schX={-5}
