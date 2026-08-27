@@ -187,8 +187,8 @@ export const PowerSection = () => (
       capacitance="47uF"
       maxVoltageRating="10V"
       footprint="1210"
-      manufacturerPartNumber="GRM32ER71A476KE15L"
-      supplierPartNumbers={{ jlcpcb: ["C84494"] }}
+      manufacturerPartNumber="CS3225X7R476K100NRL"
+      supplierPartNumbers={{ jlcpcb: ["C5189825"] }}
       pcbX={-10.6}
       pcbY={16}
       schRotation={270}

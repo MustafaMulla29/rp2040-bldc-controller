@@ -1,6 +1,6 @@
 {
   "name": "@tsci/MustafaMulla29.rp2040-bldc-controller",
-  "version": "1.0.47",
+  "version": "1.0.55",
   "description": "Single-axis 12-24 V RP2040 BLDC motor controller",
   "main": "index.circuit.tsx",
   "keywords": [
